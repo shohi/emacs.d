@@ -1,23 +1,16 @@
 ## README
-Use `redguardtoo`'s emacs.d (https://github.com/redguardtoo/emacs.d)
+personal emacs configurations, inspired by `redguardtoo`'s emacs.d.
 
 ### Usage
 
 ```terminal
 cd ~ && rm -rf ~/.emacs.d
-git clone https://github.com/redguardtoo/emacs.d.git .emacs.d
-
-# install nord-theme
-mkdir -p ~/.emacs.d/themes && \
-  cd ~/.emacs.d/themes && \
-  curl -OL https://raw.githubusercontent.com/arcticicestudio/nord-emacs/master/nord-theme.el
-
-# load theme on startup
-echo "(add-to-list 'custom-theme-load-path (expand-file-name \"~/.emacs.d/themes/\"))" >> ~/.emacs.d/init.el
-echo "(load-theme 'nord t)" >> ~/.emacs.d/init.el
-
+git clone https://github.com/shohi/emacs.d.git .emacs.d
 ```
 
 ### Links
 
-1. <https://github.com/redguardtoo/mastering-emacs-in-one-year-guide>
+1. redguardtoo's emacs.d, <https://github.com/redguardtoo/emacs.d>
+2. Master Emacs in One Year, <https://github.com/redguardtoo/mastering-emacs-in-one-year-guide>
+2. Using Emacs, <https://github.com/zamansky/using-emacs>
+3. Nord Emacs, <https://github.com/arcticicestudio/nord-emacs>
