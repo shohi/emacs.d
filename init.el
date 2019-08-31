@@ -5,7 +5,7 @@
 
 (let* ((minver "24.4"))
   (when (version< emacs-version minver)
-    (error "Emacs v%s or higher is required." minver)))
+    (error "Emacs v%s or higher is required" minver)))
 
 (defvar best-gc-cons-threshold
   4000000
@@ -60,6 +60,13 @@
       ("melpa-stable" . "https://mirrors.163.com/elpa/melpa-stable/")))
 (package-initialize)
 
+;; inhibit startup message
+(setq inhibit-startup-message t)
+
+;; some default global settings
+(defalias 'yes-or-no-p 'y-or-n-p)
+(global-hl-line-mode t)
+
 ;; bootstrap `use-package'
 (unless (package-installed-p 'use-package)
 	(package-refresh-contents)
@@ -73,9 +80,11 @@
 ;; Which means on every .el and .elc file loaded during start up, it has to runs those regexps against the filename.
 (let* ((file-name-handler-alist nil))
   (require-init 'init-go)
-  (require-init 'init-nord))
+  (require-init 'init-nord)
+  (require-init 'init-flycheck)
+  (require-init 'init-whichkey)
+  (require-init 'init-beacon))
 
-  
 (setq gc-cons-threshold best-gc-cons-threshold)
 
 (when (require 'time-date nil t)
