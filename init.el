@@ -1,6 +1,10 @@
 ;; -*- coding: utf-8; lexical-binding: t; -*-
 ;; (advice-add #'package-initialize :after #'update-load-path)
 
+;;----------------------------------------------------------------------------
+;; Emacs check
+;;----------------------------------------------------------------------------
+
 ;; (let ((path (expand-file-name  "~/.emacs.d/lisp")))
 ;;  (if (file-accessible-directory-p path)
 ;;    (add-to-list 'load-path path t)))
@@ -51,6 +55,17 @@
   (setq gc-cons-percentage 0.5)
   (run-with-idle-timer 5 t #'garbage-collect))
 
+;;----------------------------------------------------------------------------
+;; workaround settings
+;;----------------------------------------------------------------------------
+
+;; package `undo-tree` is unavailable.
+;; https://github.com/bbatsov/prelude/issues/1225
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
+;;----------------------------------------------------------------------------
+;; global setting and package bootloader
+;;----------------------------------------------------------------------------
 (defmacro require-init (pkg)
   `(load (file-truename (format "~/.emacs.d/lisp/%s" ,pkg)) t t))
 
@@ -68,8 +83,8 @@
 
 ;; bootstrap `use-package'
 (unless (package-installed-p 'use-package)
-	(package-refresh-contents)
-	(package-install 'use-package))
+  (package-refresh-contents)
+  (package-install 'use-package))
 
 ;; @see https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
 ;; Normally file-name-handler-alist is set to
@@ -84,9 +99,14 @@
   (require-init 'init-go)
   (require-init 'init-nord)
   (require-init 'init-flycheck)
+
+  ;; not available yet
+  ;; (require-init 'init-undo-tree)
+
   (require-init 'init-whichkey)
   (require-init 'init-beacon)
-  (require-init 'init-yasnippet))
+  (require-init 'init-yasnippet)
+  (require-init 'init-smex))
 
 (setq gc-cons-threshold best-gc-cons-threshold)
 
