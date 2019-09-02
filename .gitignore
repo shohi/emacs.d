@@ -1,5 +1,6 @@
 # cache
 company-statistics-cache.el
+.cache/
 
 # session
 .session
@@ -9,3 +10,6 @@ auto-save-list/
 
 # downloads
 /elpa
+
+# tutorial
+tutorial/

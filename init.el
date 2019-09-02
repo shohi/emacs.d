@@ -63,10 +63,6 @@
 ;; inhibit startup message
 (setq inhibit-startup-message t)
 
-;; some default global settings
-(defalias 'yes-or-no-p 'y-or-n-p)
-(global-hl-line-mode t)
-
 ;; bootstrap `use-package'
 (unless (package-installed-p 'use-package)
 	(package-refresh-contents)
@@ -79,11 +75,14 @@
 ;; ("\\`/:" . file-name-non-special))
 ;; Which means on every .el and .elc file loaded during start up, it has to runs those regexps against the filename.
 (let* ((file-name-handler-alist nil))
+  (require-init 'init-init)
+  (require-init 'init-try)
   (require-init 'init-go)
   (require-init 'init-nord)
   (require-init 'init-flycheck)
   (require-init 'init-whichkey)
-  (require-init 'init-beacon))
+  (require-init 'init-beacon)
+  (require-init 'init-yasnippet))
 
 (setq gc-cons-threshold best-gc-cons-threshold)
 
