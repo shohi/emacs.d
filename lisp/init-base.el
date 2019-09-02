@@ -21,9 +21,27 @@
 (defun config-reload ()
   "Reloads ~/.emacs.d/init.el at runtime"
   (interactive)
-  (load-file "~/.emacs.d/config.org"))
+  (load-file "~/.emacs.d/init.el"))
 (global-set-key (kbd "C-c r") 'config-reload)
 
-(provide 'init-init)
-;;; init-init.el ends here.
+;; disable menus and scrollbar
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
 
+;; disable ring bell
+(setq ring-bell-function 'ignore)
+
+;; set utf-8 encoding
+(setq locale-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+
+;; disable backups and auto-saves
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+
+(provide 'init-base)
+;;; init-base.el ends here.

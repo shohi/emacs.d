@@ -9,5 +9,8 @@
     :ensure t)
   (yas-reload-all))
 
+;; add golang snippets
+(add-to-list 'yas-snippet-dirs "path/to/yasnippet-golang")
+
 (provide 'init-yasnippet)
 ;;; init-yasnippet.el ends here.

@@ -15,3 +15,5 @@ git clone https://github.com/shohi/emacs.d.git .emacs.d
 3. Master Emacs in One Year, <https://github.com/redguardtoo/mastering-emacs-in-one-year-guide>
 4. Using Emacs, <https://github.com/zamansky/using-emacs>
 5. Nord Emacs, <https://github.com/arcticicestudio/nord-emacs>
+6. Set up Emacs for Golang from scratch, <https://johnsogg.github.io/emacs-golang>
+7. My Emacs configuration, <https://lupan.pl/dotemacs/>

@@ -4,24 +4,20 @@
   :ensure t
   :interpreter "go"
   :config
-  (setq gofmt-command (executable-find "goimports"))
-  ;; Using -s with goimports is not supported with upstream goimports.
-  ;; See https://github.com/golang/go/issues/8759 . Instead, use
-  ;; $ go get github.com/jzelinskie/tools/cmd/goimports
-  (setq gofmt-args (list "-s"))
+  (setq gofmt-command (executable-find "goreturns"))
 
-  (defun wh/gofmt-before-save ()
+  (defun syo/gofmt-before-save ()
     (set (make-local-variable 'before-save-hook)
          (append before-save-hook (list #'gofmt-before-save))))
 
-  (add-hook 'go-mode-hook #'wh/gofmt-before-save)
+  (add-hook 'go-mode-hook #'syo/gofmt-before-save)
 
   ;; Go is indented with tabs, so set the tab size in those buffers.
-  (defun wh/set-go-tab-width ()
+  (defun syo/set-go-tab-width ()
     (setq-local indent-tabs-mode t)
     (setq tab-width 4))
 
-  (add-hook 'go-mode-hook #'wh/set-go-tab-width)
+  (add-hook 'go-mode-hook #'syo/set-go-tab-width)
 
   ;; go-eldoc: eldoc for go language
   ;; https://github.com/syohex/emacs-go-eldoc

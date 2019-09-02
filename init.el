@@ -1,6 +1,9 @@
 ;; -*- coding: utf-8; lexical-binding: t; -*-
 ;; (advice-add #'package-initialize :after #'update-load-path)
 
+;; (let ((path (expand-file-name  "~/.emacs.d/lisp")))
+;;  (if (file-accessible-directory-p path)
+;;    (add-to-list 'load-path path t)))
 (push (expand-file-name "~/.emacs.d/lisp") load-path)
 
 (let* ((minver "24.4"))
@@ -75,7 +78,8 @@
 ;; ("\\`/:" . file-name-non-special))
 ;; Which means on every .el and .elc file loaded during start up, it has to runs those regexps against the filename.
 (let* ((file-name-handler-alist nil))
-  (require-init 'init-init)
+  (require-init 'init-base)
+  (require-init 'init-exepath)
   (require-init 'init-try)
   (require-init 'init-go)
   (require-init 'init-nord)
