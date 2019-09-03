@@ -103,6 +103,7 @@
   ;; not available yet
   ;; (require-init 'init-undo-tree)
 
+  (require-init 'init-sysmon)
   (require-init 'init-whichkey)
   (require-init 'init-beacon)
   (require-init 'init-yasnippet)
