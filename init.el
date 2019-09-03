@@ -104,6 +104,7 @@
   ;; not available yet
   ;; (require-init 'init-undo-tree)
 
+  (require-init 'init-rainbow)
   (require-init 'init-acewindow)
   (require-init 'init-sysmon)
   (require-init 'init-whichkey)
