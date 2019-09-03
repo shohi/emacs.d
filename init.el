@@ -94,6 +94,7 @@
 ;; Which means on every .el and .elc file loaded during start up, it has to runs those regexps against the filename.
 (let* ((file-name-handler-alist nil))
   (require-init 'init-base)
+  (require-init 'init-buffer)
   (require-init 'init-exepath)
   (require-init 'init-try)
   (require-init 'init-go)
@@ -103,6 +104,7 @@
   ;; not available yet
   ;; (require-init 'init-undo-tree)
 
+  (require-init 'init-acewindow)
   (require-init 'init-sysmon)
   (require-init 'init-whichkey)
   (require-init 'init-beacon)
