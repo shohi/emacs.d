@@ -22,3 +22,6 @@ transient/
 
 # projectile
 projectile-bookmarks.eld
+
+# tmp files
+recentf

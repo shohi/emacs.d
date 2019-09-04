@@ -3,10 +3,11 @@
 (use-package projectile
   :ensure t
   :config
-  (projectile-global-mode)
-  (global-set-key (kbd "<f5>") 'projectile-compile-project)
+  (projectile-mode +1)
   :bind
   ("C-c p" . projectile-command-map))
+
+(global-set-key (kbd "<f5>") 'projectile-compile-project)
 
 (provide 'init-projectile)
 ;;; init-projectile ends here.

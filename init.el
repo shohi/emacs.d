@@ -93,31 +93,40 @@
 ;; ("\\`/:" . file-name-non-special))
 ;; Which means on every .el and .elc file loaded during start up, it has to runs those regexps against the filename.
 (let* ((file-name-handler-alist nil))
+  ;; basic
   (require-init 'init-base)
   (require-init 'init-buffer)
   (require-init 'init-exepath)
   (require-init 'init-try)
-  (require-init 'init-go)
   (require-init 'init-nord)
   (require-init 'init-flycheck)
+  (require-init 'init-whichkey)
+  (require-init 'init-beacon)
+
+  (require-init 'init-linum)
+  (require-init 'init-hungrydelete)
+  (require-init 'init-eyebrowse)
+  (require-init 'init-rainbow)
+  (require-init 'init-acewindow)
+  (require-init 'init-sysmon)
 
   ;; not available yet
   ;; (require-init 'init-undo-tree)
 
   (require-init 'init-magit)
-  (require-init 'init-linum)
-  (require-init 'init-hungrydelete)
-  (require-init 'init-eyebrowse)
   (require-init 'init-expandregion)
   (require-init 'init-projectile)
-  (require-init 'init-rainbow)
-  (require-init 'init-acewindow)
-  (require-init 'init-sysmon)
-  (require-init 'init-whichkey)
-  (require-init 'init-beacon)
   (require-init 'init-yasnippet)
-  (require-init 'init-smex)
-  (require-init 'init-diminish))
+
+  (require-init 'init-swiper)
+  ;; (require-init 'init-smex)
+
+  ;; programming
+  (require-init 'init-go)
+
+  ;; diminish
+  (require-init 'init-diminish)
+)
 
 (setq gc-cons-threshold best-gc-cons-threshold)
 
