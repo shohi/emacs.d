@@ -3,11 +3,11 @@
 
 (use-package rainbow-mode
   :ensure t
-  :init (rainbow-mode 1))
+  :config (rainbow-mode 1))
 
 (use-package rainbow-delimiters
   :ensure t
-  :init (rainbow-delimiters-mode 1))
+  :config (rainbow-delimiters-mode 1))
 
 (provide 'init-rainbow)
 ;;; init-rainbow.el ends here.

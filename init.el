@@ -104,13 +104,20 @@
   ;; not available yet
   ;; (require-init 'init-undo-tree)
 
+  (require-init 'init-magit)
+  (require-init 'init-linum)
+  (require-init 'init-hungrydelete)
+  (require-init 'init-eyebrowse)
+  (require-init 'init-expandregion)
+  (require-init 'init-projectile)
   (require-init 'init-rainbow)
   (require-init 'init-acewindow)
   (require-init 'init-sysmon)
   (require-init 'init-whichkey)
   (require-init 'init-beacon)
   (require-init 'init-yasnippet)
-  (require-init 'init-smex))
+  (require-init 'init-smex)
+  (require-init 'init-diminish))
 
 (setq gc-cons-threshold best-gc-cons-threshold)
 
