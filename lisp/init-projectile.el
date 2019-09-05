@@ -1,5 +1,6 @@
 ;; -*- coding: utf-8; lexical-binding: t; -*-
 ;; project manager
+
 (use-package projectile
   :ensure t
   :config

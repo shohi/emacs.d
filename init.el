@@ -75,7 +75,11 @@
 (setq package-archives
     '(("localelpa" . "~/.emacs.d/localelpa/")
       ("melpa" . "https://mirrors.163.com/elpa/melpa/")
-      ("melpa-stable" . "https://mirrors.163.com/elpa/melpa-stable/")))
+      ("melpa-stable" . "https://mirrors.163.com/elpa/melpa-stable/")
+      ;; ("gnu" . "https://elpa.gnu.org/packages/")
+      ;; ("melpa" . "https://melpa.org/packages/")
+      ;; ("melpa-stable" . "https://stable.melpa.org/packages/")
+      ))
 (package-initialize)
 
 ;; inhibit startup message
@@ -110,8 +114,8 @@
   (require-init 'init-acewindow)
   (require-init 'init-sysmon)
 
-  ;; not available yet
-  ;; (require-init 'init-undo-tree)
+  ;; not available on melpa yet, use local source
+  (require-init 'init-undo-tree)
 
   (require-init 'init-magit)
   (require-init 'init-expandregion)
@@ -120,6 +124,14 @@
 
   (require-init 'init-swiper)
   ;; (require-init 'init-smex)
+
+  (require-init 'init-helm)
+  (require-init 'init-smartparens)
+  (require-init 'init-multiplecursors)
+  (require-init 'init-wsbutler)
+  (require-init 'init-rg)
+  (require-init 'init-fzf)
+  (require-init 'init-gotochg)
 
   ;; programming
   (require-init 'init-go)
