@@ -134,7 +134,12 @@
   (require-init 'init-gotochg)
 
   ;; programming
+  (require-init 'init-spinner)
+
+  ;; (require-init 'init-go)
   (require-init 'init-go)
+  (require-init 'init-nim)
+  (require-init 'init-rust)
 
   ;; diminish
   (require-init 'init-diminish)

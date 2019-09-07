@@ -1,65 +1,81 @@
 ;; -*- coding: utf-8; lexical-binding: t; -*-
-;; refer, https://github.com/CSRaghunandan/.emacs.d/blob/master/setup-files/setup-go.el
+;; golang setup, refer https://lupan.pl/dotemacs/ 
+
+(defun my-go-electric-brace ()
+  "Insert an opening brace may be with the closing one.
+If there is a space before the brace also adds new line with
+properly indented closing brace and moves cursor to another line
+inserted between the braces between the braces."
+  (interactive)
+  (if (not (looking-back " "))
+      (insert "{")
+    (insert "{")
+    (newline)
+    (indent-according-to-mode)
+    (save-excursion
+      (newline)
+      (insert "}")
+      (indent-according-to-mode))))
+
+(defun my-go-list-packages ()
+  "Return list of Go packages."
+  (split-string
+   (with-temp-buffer
+     (shell-command "go list ... 2>/dev/null" (current-buffer))
+     (buffer-substring-no-properties (point-min) (point-max)))
+   "\n"))
+
+(defun my-godoc-package ()
+  "Display godoc for given package (with completion)."
+  (interactive)
+  (godoc (helm :sources (helm-build-sync-source "Go packages"
+                          :candidates (my-go-list-packages))
+               :buffer "*godoc packages*")))
+
+(use-package lsp-mode
+  :ensure t
+  :commands lsp)
+
+(use-package company-lsp
+  :ensure t
+  :defer)
+
+(use-package go-guru
+  :ensure t
+  :defer)
+
+(use-package company
+  :ensure t
+  :defer)
+
 (use-package go-mode
   :ensure t
-  :interpreter "go"
+  :init
+  (setq gofmt-command "goimports"     ; use goimports instead of gofmt
+        go-fontify-function-calls nil ; fontifing names of called
+                                      ; functions is too much for me
+        company-idle-delay nil)	; avoid auto completion popup, use TAB
+                                ; to show it
+  :bind
+  (:map go-mode-map
+        ("C-c d" . lsp-describe-thing-at-point)
+        ("C-c g" . godoc)
+        ("C-c P" . my-godoc-package)
+        ("{" . my-go-electric-brace)
+        ("C-i" . company-indent-or-complete-common)
+        ("C-M-i" . company-indent-or-complete-common)
+   )
   :config
-  (setq gofmt-command (executable-find "goreturns"))
+  (require 'go-guru)
+  (add-hook 'go-mode-hook #'lsp)
+  (add-hook 'go-mode-hook #'smartparens-mode)
+  ;; run gofmt/goimports when saving the file
+  (add-hook 'before-save-hook #'gofmt-before-save))
 
-  (defun syo/gofmt-before-save ()
-    (set (make-local-variable 'before-save-hook)
-         (append before-save-hook (list #'gofmt-before-save))))
+;; Go/speedbar integration
 
-  (add-hook 'go-mode-hook #'syo/gofmt-before-save)
-
-  ;; Go is indented with tabs, so set the tab size in those buffers.
-  (defun syo/set-go-tab-width ()
-    (setq-local indent-tabs-mode t)
-    (setq tab-width 4))
-
-  (add-hook 'go-mode-hook #'syo/set-go-tab-width)
-
-  ;; go-eldoc: eldoc for go language
-  ;; https://github.com/syohex/emacs-go-eldoc
-  (use-package go-eldoc
-    :ensure t
-    :commands go-eldoc-setup
-    :config (add-hook 'go-mode-hook 'go-eldoc-setup))
-
-  (add-hook 'go-mode-hook #'flycheck-mode)
-
-  ;; integrate go-guru analysis tool to emacs
-  (use-package go-guru
-    :ensure t)
-
-  ;; gorepl-mode: A minor emacs mode for Go REPL.
-  ;; https://github.com/manute/gorepl-mode
-  (use-package gorepl-mode
-    :ensure t
-    :commands (gorepl-run gorepl-run-load-current-file))
-
-  ;; company-go: company backend for golang
-  ;; https://github.com/nsf/gocode/tree/master/emacs-company
-  (use-package company-go
-    :ensure t
-    :config
-    (defun my-go-mode-hook()
-      (set (make-local-variable 'company-backends)
-           '((company-go company-files :with company-yasnippet)
-             (company-dabbrev-code company-dabbrev))))
-
-    (add-hook 'go-mode-hook (lambda ()
-                              (company-mode)
-                              (my-go-mode-hook))))
-
-  ;; gotest: Emacs mode to go unit test command line tool
-  ;; https://github.com/nlamirault/gotest.el
-  (use-package gotest
-    :ensure t)
-
-  ;; go-rename: extra refactoring commands for go
-  (use-package go-rename
-    :ensure t))
+(eval-after-load 'speedbar
+  '(speedbar-add-supported-extension ".go"))
 
 (provide 'init-go)
-;;; init-nord.el ends here.
+;;; init-go.el ends here.

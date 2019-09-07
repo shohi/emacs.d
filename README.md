@@ -1,5 +1,5 @@
 ## README
-personal emacs configurations, inspired by `redguardtoo`'s emacs.d.
+personal emacs configuration, inspired by `redguardtoo`'s emacs.d.
 
 ### Usage
 
