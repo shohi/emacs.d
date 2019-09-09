@@ -119,7 +119,6 @@
 
   (require-init 'init-magit)
   (require-init 'init-expandregion)
-  (require-init 'init-projectile)
   (require-init 'init-yasnippet)
 
   (require-init 'init-swiper)
@@ -132,6 +131,10 @@
   (require-init 'init-rg)
   (require-init 'init-fzf)
   (require-init 'init-gotochg)
+
+  ;; project
+  (require-init 'init-projectile)
+  (require-init 'init-treemacs)
 
   ;; programming
   (require-init 'init-spinner)

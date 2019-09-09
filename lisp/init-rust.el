@@ -1,5 +1,5 @@
 ;; -*- coding: utf-8; lexical-binding: t; -*-
-;; rust setup, refer https://lupan.pl/dotemacs/ 
+;; rust setup, refer https://lupan.pl/dotemacs/
 
 (use-package cargo
   :ensure t
@@ -19,6 +19,11 @@
   (add-hook 'rust-mode-hook #'cargo-minor-mode)
   (add-hook 'rust-mode-hook #'racer-mode)
   (add-hook 'racer-mode-hook #'eldoc-mode)
+
+  (use-package flycheck-rust
+     :ensure t)
+  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+
   :bind
   (:map rust-mode-map
    ("C-i" . company-indent-or-complete-common)))

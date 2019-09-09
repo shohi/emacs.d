@@ -1,5 +1,5 @@
 ;; -*- coding: utf-8; lexical-binding: t; -*-
-;; golang setup, refer https://lupan.pl/dotemacs/ 
+;; golang setup, refer https://lupan.pl/dotemacs/
 
 (defun my-go-electric-brace ()
   "Insert an opening brace may be with the closing one.
@@ -40,10 +40,6 @@ inserted between the braces between the braces."
   :ensure t
   :defer)
 
-(use-package go-guru
-  :ensure t
-  :defer)
-
 (use-package company
   :ensure t
   :defer)
@@ -66,7 +62,18 @@ inserted between the braces between the braces."
         ("C-M-i" . company-indent-or-complete-common)
    )
   :config
-  (require 'go-guru)
+  ;; refer https://medium.com/@jerryhsieh/emacs-21-%E7%94%A8-emacs-%E4%BE%86%E5%AF%AB-go-%E8%A8%AD%E5%AE%9A%E7%AF%87-ce0e09f73c70
+  (use-package go-eldoc
+    :ensure t
+    :hook (go-mode . go-eldoc-setup))
+
+  (use-package go-guru
+    :ensure t
+    :hook (go-mode . go-guru-hl-identifier-mode))
+
+  (use-package go-rename
+    :ensure t)
+
   (add-hook 'go-mode-hook #'lsp)
   (add-hook 'go-mode-hook #'smartparens-mode)
   ;; run gofmt/goimports when saving the file
@@ -76,6 +83,34 @@ inserted between the braces between the braces."
 
 (eval-after-load 'speedbar
   '(speedbar-add-supported-extension ".go"))
+
+(use-package flycheck-gometalinter
+  :ensure t
+  :config
+  (progn
+    (flycheck-gometalinter-setup)
+    ;; skips 'vendor' directories and sets GO15VENDOREXPERIMENT=1
+    (setq flycheck-gometalinter-vendor t)
+    ;; only show errors
+    (setq flycheck-gometalinter-errors-only t)
+    ;; only run fast linters
+    (setq flycheck-gometalinter-fast t)
+    ;; use in tests files
+    (setq flycheck-gometalinter-test t)
+
+    ;; disable linters
+    ;; (setq flycheck-gometalinter-disable-linters '("gotype" "gocyclo"))
+
+    ;; Only enable selected linters
+    ;; (setq flycheck-gometalinter-disable-all t)
+    ;; (setq flycheck-gometalinter-enable-linters '("golint"))
+
+    ;; Set different deadline (default: 5s)
+    (setq flycheck-gometalinter-deadline "10s")
+
+    ;; Use a gometalinter configuration file (default: nil)
+    ;; (setq flycheck-gometalinter-config "/path/to/gometalinter-config.json")
+  ))
 
 (provide 'init-go)
 ;;; init-go.el ends here.
