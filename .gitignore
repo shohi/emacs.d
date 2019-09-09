@@ -25,3 +25,9 @@ projectile-bookmarks.eld
 
 # tmp files
 recentf
+
+# eshell
+eshell/
+
+# lsp session
+.lsp-session*

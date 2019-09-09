@@ -6,7 +6,10 @@
 (use-package rg
   :ensure t
   :config
-  (rg-enable-default-bindings "\M-s"))
+  (
+   rg-enable-default-bindings)
+   ;; (rg-enable-default-bindings "\M-s")
+  )
 
 (provide 'init-rg)
 ;;; init-rg ends here.

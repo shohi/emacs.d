@@ -60,6 +60,9 @@ inserted between the braces between the braces."
         ("{" . my-go-electric-brace)
         ("C-i" . company-indent-or-complete-common)
         ("C-M-i" . company-indent-or-complete-common)
+
+        ("C-c f" . go-test-current-file)
+        ("C-c t" . go-test-current-test)
    )
   :config
   ;; refer https://medium.com/@jerryhsieh/emacs-21-%E7%94%A8-emacs-%E4%BE%86%E5%AF%AB-go-%E8%A8%AD%E5%AE%9A%E7%AF%87-ce0e09f73c70
@@ -80,36 +83,36 @@ inserted between the braces between the braces."
   (add-hook 'before-save-hook #'gofmt-before-save))
 
 ;; Go/speedbar integration
-
 (eval-after-load 'speedbar
   '(speedbar-add-supported-extension ".go"))
 
-(use-package flycheck-gometalinter
+;; use `golangci-lint` instead of `gometalinter`.
+;; to use golang linters, the following executable should be installed.
+;; go get -u github.com/golangci/golangci-lint/cmd/golangci-lint
+(use-package flycheck-golangci-lint
   :ensure t
+  :hook (go-mode . flycheck-golangci-lint-setup)
   :config
   (progn
-    (flycheck-gometalinter-setup)
-    ;; skips 'vendor' directories and sets GO15VENDOREXPERIMENT=1
-    (setq flycheck-gometalinter-vendor t)
-    ;; only show errors
-    (setq flycheck-gometalinter-errors-only t)
     ;; only run fast linters
-    (setq flycheck-gometalinter-fast t)
+    (setq flycheck-golangci-lint-fast t)
     ;; use in tests files
-    (setq flycheck-gometalinter-test t)
+    (setq flycheck-golangci-lint-tests t)
+    ;; TODO: skip vendor folder
 
     ;; disable linters
-    ;; (setq flycheck-gometalinter-disable-linters '("gotype" "gocyclo"))
+    ;; (setq flycheck-golangci-lint-disable-all t)
+    ;; (setq flycheck-golangci-lint-disable-linters '("unused" "staticcheck" "misspell"))
 
     ;; Only enable selected linters
-    ;; (setq flycheck-gometalinter-disable-all t)
-    ;; (setq flycheck-gometalinter-enable-linters '("golint"))
+    ;; (setq flycheck-golangci-lint-enable-all t)
+    ;; (setq flycheck-golangci-lint-enable-linters '("lll" "structcheck"))
 
     ;; Set different deadline (default: 5s)
-    (setq flycheck-gometalinter-deadline "10s")
+    (setq flycheck-golangci-lint-deadline "1m")
 
-    ;; Use a gometalinter configuration file (default: nil)
-    ;; (setq flycheck-gometalinter-config "/path/to/gometalinter-config.json")
+    ;; Use a golangci-lint configuration file (default: nil)
+    ;; (setq flycheck-golangci-lint-config "path/to/config")
   ))
 
 (provide 'init-go)

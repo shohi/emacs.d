@@ -1,6 +1,17 @@
 ;; -*- coding: utf-8; lexical-binding: t; -*-
 ;; basic config, e.g. kbd for editing and reloading configurations.
 
+;; Meta
+;; Emacs control is Ctrl. Emacs Super is Command. Emacs Meta is Alt.
+(setq mac-right-command-modifier 'super)
+(setq mac-option-modifier 'meta)
+(setq mac-left-option-modifier 'meta)
+(setq mac-right-option-modifier 'meta)
+(setq mac-command-modifier 'super)
+
+;; Right Alt (option) can be used to enter symbols like em dashes `—`.
+(setq mac-right-option-modifier 'nil)
+
 ;; some default global settings
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -40,8 +51,12 @@
 (prefer-coding-system 'utf-8)
 
 ;; disable backups and auto-saves
-(setq make-backup-files nil)
-(setq auto-save-default nil)
+(setq make-backup-files nil) ; stop creating backup~ files
+(setq auto-save-default nil) ; stop creating #autosave# files
+(setq create-lockfiles nil)  ; stop creating .# files
+
+;; Revert (update) buffers automatically when underlying files are changed externally.
+(global-auto-revert-mode t)
 
 (provide 'init-base)
 ;;; init-base.el ends here.

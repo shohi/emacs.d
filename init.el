@@ -96,11 +96,18 @@
 ;; ("\\`/[^/|:][^/|]*:" . tramp-file-name-handler)
 ;; ("\\`/:" . file-name-non-special))
 ;; Which means on every .el and .elc file loaded during start up, it has to runs those regexps against the filename.
+;; TODO: use init.org instead.
 (let* ((file-name-handler-alist nil))
   ;; basic
   (require-init 'init-base)
-  (require-init 'init-buffer)
+
+  ;; sane defaults
+  (require-init 'init-simpleclip)
+
+  ;; OS integration
   (require-init 'init-exepath)
+
+  (require-init 'init-buffer)
   (require-init 'init-try)
   (require-init 'init-nord)
   (require-init 'init-flycheck)
@@ -153,3 +160,17 @@
 (when (require 'time-date nil t)
   (message "Emacs startup time: %d seconds."
            (time-to-seconds (time-since emacs-load-start-time))))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (simpleclip yasnippet-snippets ws-butler which-key use-package try treemacs-projectile treemacs-magit symon smex smartparens rg rainbow-mode rainbow-delimiters racer nord-theme nim-mode multiple-cursors linum-relative hungry-delete highlight-indent-guides helm-swoop helm-mt helm-make helm-ls-git helm-git-grep helm-descbinds helm-c-yasnippet goto-chg gotest gorepl-mode go-rename go-guru go-eldoc git-timemachine git-gutter fzf flycheck-rust flycheck-gometalinter flycheck-golangci-lint eyebrowse expand-region exec-path-from-shell diminish counsel company-lsp company-go cargo beacon))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

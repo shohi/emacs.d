@@ -27,9 +27,12 @@
 
 (use-package helm-swoop
   :ensure t
-  :bind
-  (("C-s" . helm-swoop-without-pre-input)
-   ("C-S-s" . helm-swoop)))
+  :defer
+  ;;
+  ;; :bind
+  ;; (("C-s" . helm-swoop-without-pre-input)
+  ;;  ("C-S-s" . helm-swoop))
+  )
 
 (use-package helm-descbinds
   :ensure t

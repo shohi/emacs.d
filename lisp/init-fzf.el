@@ -13,7 +13,7 @@
   :init
   (autoload 'fzf/start "fzf")
   :bind
-  (("C-c f" . fzf)
+  (("C-x f" . fzf)
    ("C-c d" . my-lcd)))
 
 (provide 'init-fzf)

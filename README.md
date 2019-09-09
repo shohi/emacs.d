@@ -18,3 +18,4 @@ git clone https://github.com/shohi/emacs.d.git .emacs.d
 6. Set up Emacs for Golang from scratch, <https://johnsogg.github.io/emacs-golang>
 7. My Emacs configuration, <https://lupan.pl/dotemacs/>
 8. Jonathan Jin's Emacs Configuration, <http://jonathanj.in/dotemacs/>
+9. freetonik's Emacs config, <https://github.com/freetonik/emacs-dotfiles>
