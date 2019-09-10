@@ -100,12 +100,22 @@
 (let* ((file-name-handler-alist nil))
   ;; basic
   (require-init 'init-base)
+  (require-init 'init-mac)
 
   ;; sane defaults
   (require-init 'init-simpleclip)
 
   ;; OS integration
   (require-init 'init-exepath)
+
+  ;; Selection
+  (require-init 'init-select)
+
+  ;; Movement
+  (require-init 'init-move)
+
+  ;; Editing
+  (require-init 'init-edit)
 
   (require-init 'init-buffer)
   (require-init 'init-try)
@@ -125,7 +135,6 @@
   (require-init 'init-undo-tree)
 
   (require-init 'init-magit)
-  (require-init 'init-expandregion)
   (require-init 'init-yasnippet)
 
   (require-init 'init-swiper)
@@ -160,17 +169,3 @@
 (when (require 'time-date nil t)
   (message "Emacs startup time: %d seconds."
            (time-to-seconds (time-since emacs-load-start-time))))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (simpleclip yasnippet-snippets ws-butler which-key use-package try treemacs-projectile treemacs-magit symon smex smartparens rg rainbow-mode rainbow-delimiters racer nord-theme nim-mode multiple-cursors linum-relative hungry-delete highlight-indent-guides helm-swoop helm-mt helm-make helm-ls-git helm-git-grep helm-descbinds helm-c-yasnippet goto-chg gotest gorepl-mode go-rename go-guru go-eldoc git-timemachine git-gutter fzf flycheck-rust flycheck-gometalinter flycheck-golangci-lint eyebrowse expand-region exec-path-from-shell diminish counsel company-lsp company-go cargo beacon))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

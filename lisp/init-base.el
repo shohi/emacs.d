@@ -1,17 +1,6 @@
 ;; -*- coding: utf-8; lexical-binding: t; -*-
 ;; basic config, e.g. kbd for editing and reloading configurations.
 
-;; Meta
-;; Emacs control is Ctrl. Emacs Super is Command. Emacs Meta is Alt.
-(setq mac-right-command-modifier 'super)
-(setq mac-option-modifier 'meta)
-(setq mac-left-option-modifier 'meta)
-(setq mac-right-option-modifier 'meta)
-(setq mac-command-modifier 'super)
-
-;; Right Alt (option) can be used to enter symbols like em dashes `—`.
-(setq mac-right-option-modifier 'nil)
-
 ;; some default global settings
 (defalias 'yes-or-no-p 'y-or-n-p)
 
