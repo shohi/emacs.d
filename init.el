@@ -160,8 +160,14 @@
   (require-init 'init-nim)
   (require-init 'init-rust)
 
+  ;; docker
+  (require-init 'init-docker)
+
   ;; diminish
   (require-init 'init-diminish)
+
+  ;; customized setting
+  (require-init 'init-custom)
 )
 
 (setq gc-cons-threshold best-gc-cons-threshold)
