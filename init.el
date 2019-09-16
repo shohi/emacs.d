@@ -117,6 +117,9 @@
   ;; Editing
   (require-init 'init-edit)
 
+  ;; Formatter
+  (require-init 'init-formatter)
+
   (require-init 'init-buffer)
   (require-init 'init-try)
   (require-init 'init-nord)
@@ -159,6 +162,8 @@
   (require-init 'init-go)
   (require-init 'init-nim)
   (require-init 'init-rust)
+
+  (require-init 'init-markdown)
 
   ;; docker
   (require-init 'init-docker)

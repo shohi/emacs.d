@@ -31,3 +31,6 @@ eshell/
 
 # lsp session
 .lsp-session*
+
+# semantic
+semanticdb/

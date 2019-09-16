@@ -3,7 +3,7 @@
 (use-package hungry-delete
 :ensure t
 :config
-(global-hungry-delete-mode))
+  (global-hungry-delete-mode))
 
 (provide 'init-hungrydelete)
 ;;; init-hungrydelete ends here.

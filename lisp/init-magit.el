@@ -3,19 +3,17 @@
 
 (use-package magit
   :ensure t
-  :config
-  (setq magit-push-always-verify nil)
-  (setq git-commit-summary-max-length 50)
-  :bind
-  ("C-x g" . magit-status))
+  :config (setq git-commit-summary-max-length 50)
+  :bind ("C-x g" . magit-status))
 
 (setq magit-status-margin
-  '(t "%Y-%m-%d %H:%M " magit-log-margin-width t 18))
+      '(t "%Y-%m-%d %H:%M " magit- log-margin-width t 18))
 
 (use-package git-gutter
   :ensure t
-  :init
-  (global-git-gutter-mode +1))
+  :bind (("C-c C-p" . git-gutter:previous-hunk)
+         ("C-c C-n" . git-gutter:next-hunk))
+  :init (global-git-gutter-mode 1))
 
 (use-package git-timemachine
   :ensure t)
