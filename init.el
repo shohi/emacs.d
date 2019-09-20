@@ -101,7 +101,7 @@
   ;; basic
   (require-init 'init-base)
   (require-init 'init-mac)
-
+  (require-init 'init-hydra)
   ;; sane defaults
   (require-init 'init-simpleclip)
 
@@ -157,6 +157,7 @@
 
   ;; programming
   (require-init 'init-spinner)
+  (require-init 'init-dumbjump)
 
   ;; (require-init 'init-go)
   (require-init 'init-go)
