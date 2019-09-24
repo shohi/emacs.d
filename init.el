@@ -102,8 +102,8 @@
   (require-init 'init-base)
   (require-init 'init-mac)
   (require-init 'init-hydra)
+
   ;; sane defaults
-  (require-init 'init-simpleclip)
 
   ;; OS integration
   (require-init 'init-exepath)
