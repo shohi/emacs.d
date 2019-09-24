@@ -117,6 +117,9 @@
   ;; Editing
   (require-init 'init-edit)
 
+  ;; Display
+  (require-init 'init-display)
+
   ;; Formatter
   (require-init 'init-formatter)
 

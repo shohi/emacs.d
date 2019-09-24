@@ -34,3 +34,6 @@ eshell/
 
 # semantic
 semanticdb/
+
+# url caches
+url/
