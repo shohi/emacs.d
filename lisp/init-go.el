@@ -48,10 +48,8 @@ inserted between the braces between the braces."
   :ensure t
   :init
   (setq gofmt-command "goimports"     ; use goimports instead of gofmt
-        go-fontify-function-calls nil ; fontifing names of called
-                                      ; functions is too much for me
-        company-idle-delay nil)	; avoid auto completion popup, use TAB
-                                ; to show it
+        go-fontify-function-calls nil ; fontifing names of called functions is too much for me
+        company-idle-delay nil)	      ; avoid auto completion popup, use TAB to show it
   :bind
   (:map go-mode-map
         ("C-c d" . lsp-describe-thing-at-point)
@@ -62,8 +60,7 @@ inserted between the braces between the braces."
         ("C-M-i" . company-indent-or-complete-common)
 
         ("C-c f" . go-test-current-file)
-        ("C-c t" . go-test-current-test)
-   )
+        ("C-c t" . go-test-current-test))
   :config
   ;; refer https://medium.com/@jerryhsieh/emacs-21-%E7%94%A8-emacs-%E4%BE%86%E5%AF%AB-go-%E8%A8%AD%E5%AE%9A%E7%AF%87-ce0e09f73c70
   (use-package go-eldoc
@@ -77,8 +74,15 @@ inserted between the braces between the braces."
   (use-package go-rename
     :ensure t)
 
+  ;; set keybind for GoAlternate
+  (define-key go-mode-map (kbd "C-c o") 'ff-find-other-file)
+
+  ;; Display debugging information during test execution.
+  (setq go-test-verbose t)
+
   (add-hook 'go-mode-hook #'lsp)
   (add-hook 'go-mode-hook #'smartparens-mode)
+
   ;; run gofmt/goimports when saving the file
   (add-hook 'before-save-hook #'gofmt-before-save))
 
