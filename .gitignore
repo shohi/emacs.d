@@ -37,3 +37,6 @@ semanticdb/
 
 # url caches
 url/
+
+# playground
+playground.el
