@@ -7,4 +7,4 @@
   (load-theme 'nord t))
 
 (provide 'init-nord)
-;;; init-go.el ends here.
+;;; init-nord.el ends here.

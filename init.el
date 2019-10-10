@@ -125,7 +125,7 @@
 
   (require-init 'init-buffer)
   (require-init 'init-try)
-  (require-init 'init-nord)
+
   (require-init 'init-flycheck)
   (require-init 'init-whichkey)
   (require-init 'init-beacon)
@@ -177,6 +177,12 @@
 
   ;; customized setting
   (require-init 'init-custom)
+
+  ;; theme must be put at the bottom
+  (require-init 'init-nord)
+
+  ;; Org mode
+  (require-init 'init-org)
 )
 
 (setq gc-cons-threshold best-gc-cons-threshold)
