@@ -161,6 +161,7 @@
   ;; programming
   (require-init 'init-spinner)
   (require-init 'init-dumbjump)
+  (require-init 'init-web)
 
   ;; (require-init 'init-go)
   (require-init 'init-go)
