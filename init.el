@@ -103,6 +103,9 @@
   (require-init 'init-mac)
   (require-init 'init-hydra)
 
+  ;; Org Mode
+  (require-init 'init-org)
+
   ;; sane defaults
 
   ;; OS integration
