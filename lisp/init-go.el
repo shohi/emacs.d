@@ -32,24 +32,12 @@ inserted between the braces between the braces."
                           :candidates (my-go-list-packages))
                :buffer "*godoc packages*")))
 
-(use-package lsp-mode
-  :ensure t
-  :commands lsp)
-
-(use-package company-lsp
-  :ensure t
-  :defer)
-
-(use-package company
-  :ensure t
-  :defer)
-
 (use-package go-mode
   :ensure t
   :init
   (setq gofmt-command "goimports"     ; use goimports instead of gofmt
         go-fontify-function-calls nil ; fontifing names of called functions is too much for me
-        company-idle-delay nil)	      ; avoid auto completion popup, use TAB to show it
+        company-idle-delay nil)	; avoid auto completion popup, use TAB to show it
   :bind
   (:map go-mode-map
         ("C-c d" . lsp-describe-thing-at-point)
@@ -79,6 +67,10 @@ inserted between the braces between the braces."
 
   ;; Display debugging information during test execution.
   (setq go-test-verbose t)
+
+  ;; Add args for go test
+  (setq go-test-args "--count=1")
+
 
   (add-hook 'go-mode-hook #'lsp)
   (add-hook 'go-mode-hook #'smartparens-mode)
