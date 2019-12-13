@@ -69,13 +69,16 @@
 (defmacro require-init (pkg)
   `(load (file-truename (format "~/.emacs.d/lisp/%s" ,pkg)) t t))
 
-;; replace with 163 mirror
+;; replace with USTC mirror
+;; https://mirrors.ustc.edu.cn/help/elpa.html
 (require 'package)
 (setq package-enable-at-startup nil)
 (setq package-archives
     '(("localelpa" . "~/.emacs.d/localelpa/")
-      ("melpa" . "https://mirrors.163.com/elpa/melpa/")
-      ("melpa-stable" . "https://mirrors.163.com/elpa/melpa-stable/")
+      ("gnu" . "https://mirrors.ustc.edu.cn/elpa/gnu/")
+      ("melpa" . "https://mirrors.ustc.edu.cn/elpa/melpa/")
+      ("melpa-stable" . "https://mirrors.ustc.edu.cn/elpa/melpa-stable/")
+      ("org" . "https://mirrors.ustc.edu.cn/elpa/org/")
       ;; ("gnu" . "https://elpa.gnu.org/packages/")
       ;; ("melpa" . "https://melpa.org/packages/")
       ;; ("melpa-stable" . "https://stable.melpa.org/packages/")
