@@ -16,12 +16,10 @@
 ;;   :ensure t
 ;;   :init
 ;;   (setq highlight-indent-guides-method 'character))
-
 (use-package nim-mode
   :ensure t
   :init
-  ;; (add-hook 'nim-mode-hook 'highlight-indent-guides-mode)
-  )
+  (add-hook 'nim-mode-hook 'nimsuggest-mode))
 
 (provide 'init-nim)
 ;;; init-nim.el ends here.
