@@ -73,16 +73,20 @@
 ;; https://mirrors.ustc.edu.cn/help/elpa.html
 (require 'package)
 (setq package-enable-at-startup nil)
-(setq package-archives
-    '(("localelpa" . "~/.emacs.d/localelpa/")
-      ("gnu" . "https://mirrors.ustc.edu.cn/elpa/gnu/")
-      ("melpa" . "https://mirrors.ustc.edu.cn/elpa/melpa/")
-      ("melpa-stable" . "https://mirrors.ustc.edu.cn/elpa/melpa-stable/")
-      ("org" . "https://mirrors.ustc.edu.cn/elpa/org/")
-      ;; ("gnu" . "https://elpa.gnu.org/packages/")
-      ;; ("melpa" . "https://melpa.org/packages/")
-      ;; ("melpa-stable" . "https://stable.melpa.org/packages/")
-      ))
+(if (string-equal (getenv "DISABLE_ELPA_MIRROR") "true")
+    (setq package-archives
+	  '(("localelpa" . "~/.emacs.d/localelpa/")
+	    ("gnu" . "https://mirrors.ustc.edu.cn/elpa/gnu/")
+	    ("melpa" . "https://mirrors.ustc.edu.cn/elpa/melpa/")
+	    ("melpa-stable" . "https://mirrors.ustc.edu.cn/elpa/melpa-stable/")
+	    ("org" . "https://mirrors.ustc.edu.cn/elpa/org/")))
+  (setq package-archives
+	'(("localelpa" . "~/.emacs.d/localelpa/")
+	  ("gnu" . "https://elpa.gnu.org/packages/")
+	  ("melpa" . "https://melpa.org/packages/")
+	  ("melpa-stable" . "https://stable.melpa.org/packages/")))
+  )
+
 (package-initialize)
 
 ;; inhibit startup message
