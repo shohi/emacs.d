@@ -13,7 +13,8 @@
   (define-key helm-find-files-map
     (kbd "C-i")  #'helm-execute-persistent-action)
   :bind
-  (("M-x" . helm-M-x)
+  (
+   ("M-x" . helm-M-x)
    ("M-y" . helm-show-kill-ring)
    ("C-x C-f" . helm-find-files)
    ("C-c o" . helm-occur)
