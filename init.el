@@ -73,7 +73,7 @@
 ;; https://mirrors.ustc.edu.cn/help/elpa.html
 (require 'package)
 (setq package-enable-at-startup nil)
-(if (string-equal (getenv "DISABLE_ELPA_MIRROR") "true")
+(if (string-equal (getenv "DISABLE_ELPA_MIRROR") "false")
     (setq package-archives
 	  '(("localelpa" . "~/.emacs.d/localelpa/")
 	    ("gnu" . "https://elpa.gnu.org/packages/")
