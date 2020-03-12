@@ -191,11 +191,17 @@
   ;; customized setting
   (require-init 'init-custom)
 
-  ;; theme must be put at the bottom
-  (require-init 'init-nord)
-
   ;; Org mode
   (require-init 'init-org)
+
+  ;; clojure
+  (require-init 'init-clojure)
+
+  ;; osx clipboard
+  (require-init 'init-clipboard)
+
+  ;; theme must be put at the bottom
+  (require-init 'init-theme)
 )
 
 (setq gc-cons-threshold best-gc-cons-threshold)

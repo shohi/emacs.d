@@ -27,7 +27,9 @@
 (use-package avy
   :ensure t
   :bind
-  ("C-c ;" . avy-goto-char-timer))
+  ("C-c ;" . avy-goto-char-timer)
+  ("C-:" . avy-goto-char)
+  ("C-'" . avy-goto-char-2))
 
 (provide 'init-move)
 ;;; init-move.el ends here.

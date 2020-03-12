@@ -41,3 +41,6 @@ url/
 # playground
 playground.el
 playground.org
+
+# cider
+cider-history
