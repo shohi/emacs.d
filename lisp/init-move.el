@@ -28,8 +28,11 @@
   :ensure t
   :bind
   ("C-c ;" . avy-goto-char-timer)
-  ("C-:" . avy-goto-char)
-  ("C-'" . avy-goto-char-2))
+  ;; `Ctrl-;` and `Ctrl-'` not work in terminal
+  ;; https://unix.stackexchange.com/questions/161719/why-cant-emacs-running-in-a-terminal-distinguish-ctrl-from
+  ;; ("C-:" . avy-goto-char)
+  ;; ("C-'" . avy-goto-char-2)
+  )
 
 (provide 'init-move)
 ;;; init-move.el ends here.
