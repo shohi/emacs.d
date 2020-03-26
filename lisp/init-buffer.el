@@ -4,5 +4,8 @@
 ;; make ibuffer default
 (defalias 'list-buffers 'ibuffer-other-window)
 
+(use-package buffer-move
+  :ensure t)
+
 (provide 'init-buffer)
 ;;; init-buffer.el ends here.
