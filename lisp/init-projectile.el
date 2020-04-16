@@ -5,6 +5,7 @@
   :ensure t
   :config
   (projectile-mode +1)
+  (setq projectile-completion-system 'ivy)
   :bind
   ("C-c p" . projectile-command-map))
 
