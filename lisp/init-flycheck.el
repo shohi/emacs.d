@@ -2,15 +2,7 @@
 ;; refer, https://www.flycheck.org/en/latest/
 
 (use-package flycheck
-  :ensure t
-  :config
-
-  (use-package exec-path-from-shell
-    :ensure t
-    :config
-    (exec-path-from-shell-initialize))
-
-  (global-flycheck-mode))
+  :ensure t)
 
 (provide 'init-flycheck)
 ;;; init-flycheck.el ends here.
