@@ -93,6 +93,9 @@
 ;; inhibit startup message
 (setq inhibit-startup-message t)
 
+;; set custom file
+(setq custom-file "~/.emacs.d/custom.el")
+
 ;; bootstrap `use-package'
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -131,8 +134,9 @@
   ;; Display
   (require-init 'init-display)
 
-  ;; Formatter
-  (require-init 'init-formatter)
+  ;; lispy confilicts with smartparens
+  ;; disabled
+  ;; (require-init 'init-lispy)
 
   (require-init 'init-buffer)
   (require-init 'init-try)
@@ -202,7 +206,7 @@
 
   ;; theme must be put at the bottom
   (require-init 'init-theme)
-)
+  )
 
 (setq gc-cons-threshold best-gc-cons-threshold)
 

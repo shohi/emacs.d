@@ -1,9 +1,9 @@
 ;; -*- coding: utf-8; lexical-binding: t; -*-
 ;; clojure setup, refer https://liujiacai.net/blog/2019/04/21/experience-in-clojure/
 
-(use-package paredit
-  :ensure t
-  :defer)
+;; (use-package paredit
+;;   :ensure t
+;;   :defer)
 
 (use-package clj-refactor
   :ensure t)
@@ -14,12 +14,22 @@
   ;; https://github.com/clojure-emacs/inf-clojure
   )
 
+;; First install the package:
+;; https://github.com/borkdude/flycheck-clj-kondo
+;; require `clj-kondo` installed.
+(use-package flycheck-clj-kondo
+  :after flycheck
+  :ensure t)
 
 (use-package clojure-mode
   :ensure t
   :mode ("\\.clj$" "\\.cljs$" "\\.cljc$" "\\.edn$" "\\.cljx$")
   :config
-  (add-hook 'clojure-mode-hook 'enable-paredit-mode)
+  (require 'flycheck-clj-kondo)
+  (add-hook 'clojure-mode-hook #'subword-mode)
+  (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
+  ;; (add-hook 'clojure-mode-hook 'enable-paredit-mode)
+  (add-hook 'clojure-mode-hook #'smartparens-strict-mode)
   ;; syntax hilighting for midje
   (add-hook 'clojure-mode-hook
             (lambda ()
@@ -56,9 +66,9 @@
     (setq clojure-defun-style-default-indent (not clojure-defun-style-default-indent)))
   )
 
-(use-package clojure-mode-extra-font-locking
-  :ensure t
-  :after clojure-mode)
+;; (use-package clojure-mode-extra-font-locking
+;;   :ensure t
+;;   :after clojure-mode)
 
 ;; (use-package clj-refactor
 ;;   :after cider

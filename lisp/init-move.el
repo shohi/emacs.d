@@ -2,7 +2,7 @@
 ;; keybinds for efficient move
 
 ;; enable show parenthesis
-(show-paren-mode)
+;; (show-paren-mode)
 
 ;; fast switch between matching parenthesis using `%`
 ;; https://www.gnu.org/software/emacs/manual/html_node/efaq/Matching-parentheses.html

@@ -7,6 +7,7 @@
 ;; - init-flycheck.el
 (use-package go-mode
   :ensure t
+  :mode ("\\.go\\'" . go-mode)
   :bind (
          ;; If you want to switch existing go-mode bindings to use lsp-mode/gopls instead
          ;; uncomment the following lines
