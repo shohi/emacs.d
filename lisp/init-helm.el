@@ -8,6 +8,7 @@
   (setq helm-split-window-default-side 'other)
   (helm-mode 1)
   :config
+  (require 'helm-config)
   (define-key helm-find-files-map
     (kbd "<backtab>") #'helm-select-action)
   (define-key helm-find-files-map
@@ -26,44 +27,45 @@
    ("C-c r" . helm-resume)
    ("C-c i" . helm-imenu)))
 
-(use-package helm-swoop
-  :ensure t
-  :defer
+;; (use-package helm-swoop
+;;  :ensure t
+;;  :defer
   ;;
   ;; :bind
   ;; (("C-s" . helm-swoop-without-pre-input)
   ;;  ("C-S-s" . helm-swoop))
-  )
+;;  )
 
-(use-package helm-descbinds
-  :ensure t
-  :init
-  (helm-descbinds-mode))
+;; (use-package helm-descbinds
+;;  :ensure t
+;;  :init
+;;  (helm-descbinds-mode))
 
-(use-package helm-git-grep
-  :ensure t
-  :bind
-  (("C-c j" . helm-git-grep)
-   ("C-c J" . helm-git-grep-at-point)))
+;; TODO: disable
+;; (use-package helm-git-grep
+;;  :ensure t
+;;  :bind
+;;  (("C-c j" . helm-git-grep)
+;;   ("C-c J" . helm-git-grep-at-point)))
 
-(use-package helm-ls-git
-  :ensure t
-  :bind
-  (("C-c g" . helm-ls-git-ls)))
+;; (use-package helm-ls-git
+;;  :ensure t
+;;  :bind
+;;  (("C-c g" . helm-ls-git-ls)))
 
-(use-package helm-make
-  :ensure t
-  :bind
-  (("C-c K" . helm-make)))
+;; (use-package helm-make
+;;  :ensure t
+;;  :bind
+;;  (("C-c K" . helm-make)))
 
-(use-package helm-c-yasnippet
-  :ensure t
-  :bind
-  (("C-c y" . helm-yas-complete)))
+;; (use-package helm-c-yasnippet
+;;  :ensure t
+;;  :bind
+;;  (("C-c y" . helm-yas-complete)))
 
-(use-package helm-mt
-  :ensure t
-  :bind (("C-c S" . helm-mt)))
+;; (use-package helm-mt
+;;  :ensure t
+;;  :bind (("C-c S" . helm-mt)))
 
 (provide 'init-helm)
 ;;; init-helm ends here.

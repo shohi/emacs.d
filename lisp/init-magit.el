@@ -3,11 +3,12 @@
 
 (use-package magit
   :ensure t
-  :config (setq git-commit-summary-max-length 50)
+  :config
+  (setq git-commit-summary-max-length 50)
   :bind ("C-x g" . magit-status))
 
 (setq magit-status-margin
-      '(t "%Y-%m-%d %H:%M " magit- log-margin-width t 18))
+      '(t "%Y-%m-%d %H:%M " magit-log-margin-width t 18))
 
 (use-package git-gutter
   :ensure t

@@ -47,5 +47,8 @@
 ;; Revert (update) buffers automatically when underlying files are changed externally.
 (global-auto-revert-mode t)
 
+;; enable dubug on error
+;; (setq debug-on-error t)
+
 (provide 'init-base)
 ;;; init-base.el ends here.
