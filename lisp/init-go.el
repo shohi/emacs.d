@@ -2,6 +2,8 @@
 ;; refer, gopls-config.el
 ;; https://gist.github.com/psanford/b5d2689ff1565ec7e46867245e3d2c76
 
+;; https://arenzana.org/2019/12/emacs-go-mode-revisited/
+
 ;; rely on
 ;; - init-lsp.el
 ;; - init-flycheck.el
