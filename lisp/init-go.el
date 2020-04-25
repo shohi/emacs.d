@@ -7,6 +7,8 @@
 ;; rely on
 ;; - init-lsp.el
 ;; - init-flycheck.el
+;; - init-company.el
+
 (use-package go-mode
   :ensure t
   :mode ("\\.go\\'" . go-mode)
