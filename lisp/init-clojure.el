@@ -5,8 +5,11 @@
 ;;   :ensure t
 ;;   :defer)
 
+;; https://github.com/clojure-emacs/clj-refactor.el
 (use-package clj-refactor
-  :ensure t)
+  :ensure t
+  :config
+  (cljr-add-keybindings-with-prefix "C-c C-r"))
 
 (use-package inf-clojure
   :ensure t
