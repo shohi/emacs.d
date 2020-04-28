@@ -20,3 +20,8 @@
   "Kill all other buffers."
   (interactive)
   (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
+
+(defun sk/insert-week-num ()
+  "Insert current week num at the cursor"
+  (interactive)
+  (insert (format-time-string "W%W")))

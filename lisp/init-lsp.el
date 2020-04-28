@@ -8,7 +8,10 @@
   :commands (lsp lsp-defered)
   :config (progn
 	    ;; use flycheck, not flymake
-            (setq lsp-prefer-flymake nil)))
+        (setq lsp-prefer-flymake nil)
+
+	    (setq lsp-enable-file-watchers nil))
+  )
 
 ;; optional - provides fancy overlay information
 (use-package lsp-ui

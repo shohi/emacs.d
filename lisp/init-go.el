@@ -22,5 +22,10 @@
          (before-save . lsp-format-buffer)
          (before-save . lsp-organize-imports)))
 
+;; gotest: Emacs mode to go unit test command line tool
+;; https://github.com/nlamirault/gotest.el
+(use-package gotest
+  :ensure t)
+
 (provide 'init-go)
 ;;; init-go.el ends here.

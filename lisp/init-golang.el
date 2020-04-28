@@ -27,7 +27,6 @@
     :commands go-eldoc-setup
     :config (add-hook 'go-mode-hook 'go-eldoc-setup))
 
-  (add-hook 'go-mode-hook #'flycheck-mode)
 
   ;; integrate go-guru analysis tool to emacs
   (use-package go-guru
