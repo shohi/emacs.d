@@ -3,13 +3,10 @@
 
 (use-package lsp-mode
   :ensure t
-  ;; uncomment to enable gopls http debug server
-  ;; :custom (lsp-gopls-server-args '("-debug" "127.0.0.1:0"))
-  :commands (lsp lsp-defered)
+  :commands (lsp lsp-deferred)
   :config (progn
 	    ;; use flycheck, not flymake
-        (setq lsp-prefer-flymake nil)
-
+	    (setq lsp-prefer-flymake nil)
 	    (setq lsp-enable-file-watchers nil))
   )
 
@@ -20,6 +17,7 @@
   :config (progn
             ;; disable inline documentation
             (setq lsp-ui-sideline-enable nil)
+
             ;; disable showing docs on hover at the top of the window
             (setq lsp-ui-doc-enable nil)))
 
