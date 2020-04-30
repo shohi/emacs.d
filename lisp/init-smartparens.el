@@ -10,6 +10,9 @@
   (require 'smartparens-config)
   (show-smartparens-global-mode t)
 
+  ;; use sp keybindings
+  (sp-use-smartparens-bindings)
+
   ;; hooks
   (add-hook 'prog-mode-hook 'turn-on-smartparens-strict-mode)
   (add-hook 'markdown-mode-hook 'turn-on-smartparens-strict-mode)

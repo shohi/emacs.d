@@ -19,8 +19,8 @@
          ;; ("C-c C-d" . lsp-describe-thing-at-point)
          )
   :hook ((go-mode . lsp-deferred)
-	 (before-save . lsp-format-buffer)
-	 (before-save . lsp-organize-imports)))
+         (before-save . lsp-format-buffer)
+         (before-save . lsp-organize-imports)))
 
 ;; gotest: Emacs mode to go unit test command line tool
 ;; https://github.com/nlamirault/gotest.el
