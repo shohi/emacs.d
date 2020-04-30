@@ -21,7 +21,7 @@
   (interactive)
   (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
 
-(defun sk/insert-week-num ()
+(defun sk/insert-week-num-at-point ()
   "Insert current week num at the cursor"
   (interactive)
   (insert (format-time-string "W%W")))
