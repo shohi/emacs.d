@@ -47,3 +47,6 @@ cider-history
 
 # custom.el
 custom.el
+
+# org
+.mc-lists.el

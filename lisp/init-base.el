@@ -50,5 +50,10 @@
 ;; enable dubug on error
 ;; (setq debug-on-error t)
 
+;; delete trailing space before save
+;; https://stackoverflow.com/questions/7746965/how-do-you-delete-trailng-white-space-in-emacs
+;; TODO: not work
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 (provide 'init-base)
 ;;; init-base.el ends here.

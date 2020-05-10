@@ -5,14 +5,16 @@
 
 (use-package zenburn-theme
   :ensure t
-  :config
-  (load-theme 'zenburn t))
+  ;;  :config (load-theme 'zenburn t)
+  )
 
 (use-package nord-theme
   :ensure t
   ;; :config
   ;; (load-theme 'nord t)
   )
+
+(load-theme 'zenburn t)
 
 (provide 'init-theme)
 ;;; init-theme.el ends here.
