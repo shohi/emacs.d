@@ -50,6 +50,10 @@
 	    (lambda ()
 	      (clj-refactor-mode 1)
 	      (yas-minor-mode 1)))
+  ;; unset % for balanced match
+  (add-hook 'clojure-mode-hook
+            (lambda()
+              (local-set-key (kbd "%") 'self-insert-command)))
   (define-clojure-indent
     (defroutes 'defun)
     (GET 2)

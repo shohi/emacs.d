@@ -50,3 +50,6 @@ custom.el
 
 # org
 .mc-lists.el
+
+# sre
+srecode-map.el
