@@ -55,5 +55,37 @@
 ;; TODO: not work
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; copy/paster from  system clipboard
+;; * copy - `M-|' | pbcopy RET
+;; * paste - `M-|' | pbpaste RET
+
+;; set default fonts and frame size
+;; 1. if running in terminal, use the terminal settings
+;; 2. if running in GUI, apply following settings
+;;
+;; https://stackoverflow.com/questions/9845661/with-emacs-how-to-go-to-the-pairing-balancing-parentheses
+;; https://emacs.stackexchange.com/questions/2501/how-can-i-set-default-font-in-emacs
+;; https://emacs.stackexchange.com/questions/7151/is-there-a-way-to-detect-that-emacs-is-running-in-a-terminal
+(when (display-graphic-p)
+  ;; Do any keybindings and theme setup here
+
+  ;; default fonts
+  (add-to-list 'default-frame-alist '(font . "Droid Sans Mono for Powerline-24"))
+
+  ;; default frame size
+  (add-to-list 'default-frame-alist '(fullscreen . maximized)))
+
+;; reveal current file in folder
+;; reveal-in-folder, https://github.com/jcs-elpa/reveal-in-folder
+(use-package reveal-in-folder
+  :ensure t)
+
+;; add translator
+;; Youdao Dictionary, https://github.com/xuchunyang/youdao-dictionary.el
+(use-package youdao-dictionary
+  :ensure t
+  :bind
+  ("C-c y" . youdao-dictionary-search-at-point))
+
 (provide 'init-base)
 ;;; init-base.el ends here.

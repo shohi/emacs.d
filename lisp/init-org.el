@@ -6,5 +6,11 @@
 ;;   :ensure t
 ;;   :hook (org-mode . org-bullets-mode))
 
+;; activate default key-bindings
+;; https://orgmode.org/manual/Activation.html
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
+
 (provide 'init-org)
 ;;; init-org.el ends here.

@@ -51,5 +51,8 @@ custom.el
 # org
 .mc-lists.el
 
-# sre
+# test
+test.el
+
+# srecode
 srecode-map.el

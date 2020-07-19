@@ -25,3 +25,31 @@
   "Insert current week num at the cursor"
   (interactive)
   (insert (format-time-string "W%W")))
+
+
+;; copy/paste/cut from/to macOS clipboard
+;; https://apple.stackexchange.com/questions/85222/configure-emacs-to-cut-and-copy-text-to-mac-os-x-clipboard
+;; https://emacs.stackexchange.com/questions/10900/copy-text-from-emacs-to-os-x-clipboard
+(if (eq system-type 'darwin)
+    (progn
+      (defun pbcopy ()
+	"copy region to clipboard"
+	(interactive)
+	(let ((deactivate-mark t))
+	  (call-process-region (point)
+			       (mark) "pbcopy")))
+      (defun pbpaste ()
+	"paste from clipboard"
+	(interactive)
+	(call-process-region (point)
+			     (if mark-active (mark)
+			       (point)) "pbpaste" t t))
+      (defun pbcut ()
+	"cut region to clipboard"
+	(interactive)
+	(pbcopy)
+	(delete-region (region-beginning)
+		       (region-end)))
+      (global-set-key (kbd "C-c c") 'pbcopy)
+      (global-set-key (kbd "C-c v") 'pbpaste)
+      (global-set-key (kbd "C-c x") 'pbcut)))

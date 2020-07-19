@@ -7,7 +7,11 @@
   :mode (("README\\.md\\'" . gfm-mode)
 	 ("\\.md\\'" . markdown-mode)
 	 ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "multimarkdown"))
+  :init
+  ;; use pandoc as markdown generating tool
+  ;; `brew install pandoc'
+  (setq markdown-command "pandoc")
+  )
 
 (provide 'init-markdown)
 ;;; init-markdown.el ends here.

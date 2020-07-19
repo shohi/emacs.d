@@ -173,6 +173,10 @@
   (require-init 'init-rust)
 
   (require-init 'init-markdown)
+  (require-init 'init-formatter)
+
+  ;; writing
+  (require-init 'init-writeroom)
 
   ;; docker
   (require-init 'init-docker)
