@@ -135,6 +135,9 @@
          ("C-M-r" . cider-ns-refresh)
          ("C-c u" . cider-user-ns)))
 
+(use-package clojure-snippets
+  :ensure t)
+
 (setq cider-known-endpoints
       '(("bb" "localhost" "1667")))
 (provide 'init-clojure)
