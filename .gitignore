@@ -25,6 +25,7 @@ projectile-bookmarks.eld
 
 # tmp files
 recentf
+network-security.data
 
 # eshell
 eshell/
@@ -56,3 +57,8 @@ test.el
 
 # srecode
 srecode-map.el
+
+# game
+games/
+speed-type/
+xkcd/
