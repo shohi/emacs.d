@@ -8,6 +8,9 @@
 	    ;; use flycheck, not flymake
 	    (setq lsp-prefer-flymake nil)
 	    (setq lsp-enable-file-watchers nil))
+  :hook
+  ;; golang
+  (go-mode . lsp-deferred)
   )
 
 ;; optional - provides fancy overlay information

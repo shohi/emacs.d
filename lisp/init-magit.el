@@ -10,13 +10,24 @@
 (setq magit-status-margin
       '(t "%Y-%m-%d %H:%M " magit-log-margin-width t 18))
 
-(use-package git-gutter
+;; use diff-hl instead of git-gutter
+(use-package diff-hl
   :ensure t
-  :bind (("C-c C-p" . git-gutter:previous-hunk)
-         ("C-c C-n" . git-gutter:next-hunk))
-  :init (global-git-gutter-mode 1))
+  :bind (("C-c C-p" . diff-hl-previous-hunk)
+	 ("C-c C-n" . diff-hl-next-hunk)
+	 )
+  :init (global-diff-hl-mode))
+
+;; (use-package git-gutter
+;;   :ensure t
+;;   :bind (("C-c C-p" . git-gutter:previous-hunk)
+;;          ("C-c C-n" . git-gutter:next-hunk))
+;;   :init (global-git-gutter-mode 1))
 
 (use-package git-timemachine
+  :ensure t)
+
+(use-package magit-todos
   :ensure t)
 
 (provide 'init-magit)
