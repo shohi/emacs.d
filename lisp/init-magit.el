@@ -3,20 +3,28 @@
 
 (use-package magit
   :ensure t
-  :config
-  (setq git-commit-summary-max-length 50)
+  ;; :config
+  ;; (setq git-commit-summary-max-length 50)
   :bind ("C-x g" . magit-status))
 
 (setq magit-status-margin
       '(t "%Y-%m-%d %H:%M " magit-log-margin-width t 18))
 
 ;; use diff-hl instead of git-gutter
+;; https://github.com/dgutov/diff-hl/issues/92
 (use-package diff-hl
   :ensure t
   :bind (("C-c C-p" . diff-hl-previous-hunk)
-	 ("C-c C-n" . diff-hl-next-hunk)
-	 )
-  :init (global-diff-hl-mode))
+	 ("C-c C-n" . diff-hl-next-hunk))
+  :config
+  ;; Highlight changed files in the fringe of Dired
+  (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
+
+  ;; TODO: integrate diff-hl into treemacs
+  (global-diff-hl-mode)
+
+  ;; Fall back to the display margin, if the fringe is unavailable
+  (unless (display-graphic-p) (diff-hl-margin-mode)))
 
 ;; (use-package git-gutter
 ;;   :ensure t
