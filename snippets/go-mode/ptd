@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ptd
+# description: panic with TODO
+# --
+panic("TODO")

@@ -38,5 +38,8 @@
 (use-package magit-todos
   :ensure t)
 
+(use-package gitignore-mode
+  :ensure t)
+
 (provide 'init-magit)
 ;;; init-magit ends here.

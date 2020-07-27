@@ -101,6 +101,7 @@
   (require-init 'init-base)
   (require-init 'init-mac)
   (require-init 'init-hydra)
+  (require-init 'init-frame)
 
   ;; Org Mode
   ;; (require-init 'init-org)
