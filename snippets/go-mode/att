@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: att
+# description: create assert with testing.T
+# --
+assert := assert.New(t)

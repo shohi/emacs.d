@@ -30,7 +30,13 @@
 ;; gotest: Emacs mode to go unit test command line tool
 ;; https://github.com/nlamirault/gotest.el
 (use-package gotest
-  :ensure t)
+  :ensure t
+  :bind (:map go-mode-map
+	      ("C-c t p" . go-test-current-project)
+	      ("C-c t f" . go-test-current-file)
+	      ("C-c t t" . go-test-current-test)
+	      ("C-c t c" . go-test-current-coverage))
+  )
 
 (provide 'init-go)
 ;;; init-go.el ends here.
