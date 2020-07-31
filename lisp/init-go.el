@@ -38,5 +38,13 @@
 	      ("C-c t c" . go-test-current-coverage))
   )
 
+;; impl generates method stubs for implementing an interface.
+;; required binaries - `impl' and `godoc'
+;; go get -u github.com/josharian/impl (or github.com/shohi/impl)
+;; go get -u golang.org/x/tools/cmd/godoc
+
+(use-package go-impl
+  :ensure t)
+
 (provide 'init-go)
 ;;; init-go.el ends here.
