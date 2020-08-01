@@ -1,6 +1,13 @@
-;; -*- coding: utf-8; lexical-binding: t; -*-
-;; (advice-add #'package-initialize :after #'update-load-path)
+;;; init.el --- Load the full configuration -*- coding: utf-8; lexical-binding: t; -*-
 
+;;; Commentary:
+
+;; This file bootstraps the configuration, which is divided into
+;; a number of other files.
+
+;;; Code:
+
+;; (advice-add #'package-initialize :after #'update-load-path)
 ;;----------------------------------------------------------------------------
 ;; Emacs check
 ;;----------------------------------------------------------------------------
@@ -9,6 +16,7 @@
 ;;  (if (file-accessible-directory-p path)
 ;;    (add-to-list 'load-path path t)))
 (push (expand-file-name "~/.emacs.d/lisp") load-path)
+;; (push (locate-user-emacs-file "lisp") load-path)
 
 (let* ((minver "26.3"))
   (when (version< emacs-version minver)
@@ -48,8 +56,22 @@
 ;;----------------------------------------------------------------------------
 ;; global setting and package bootloader
 ;;----------------------------------------------------------------------------
-(defmacro require-init (pkg)
-  `(load (file-truename (format "~/.emacs.d/lisp/%s" ,pkg)) t t))
+;; (defmacro require-init (pkg)
+;;   `(load (file-truename (format "~/.emacs.d/lisp/%s" ,pkg)) t t))
+
+(defconst my-emacs-d (file-name-as-directory user-emacs-directory)
+  "Directory of folder - emacs.d.")
+
+(defconst my-site-lisp-dir (concat my-emacs-d "site-lisp")
+  "Directory of subfolder - site-lisp.")
+
+(defconst my-lisp-dir (concat my-emacs-d "lisp")
+  "Directory of subfolder - lisp.")
+
+(defun require-init (pkg &optional maybe-disabled)
+  "Load PKG if MAYBE-DISABLED is nil or it's nil but start up in normal slowly."
+  (when (not maybe-disabled)
+    (load (file-truename (format "%s/%s" my-lisp-dir pkg)) t t)))
 
 ;; replace with USTC mirror
 ;; https://mirrors.ustc.edu.cn/help/elpa.html
@@ -72,9 +94,7 @@
 	  ("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
           ("melpa-stable" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/")
           ;; ("org" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
-	  ("org" . "https://orgmode.org/elpa/")
-	  ))
-  )
+	  ("org" . "https://orgmode.org/elpa/"))))
 
 (package-initialize)
 
@@ -83,6 +103,7 @@
 
 ;; set custom file
 (setq custom-file "~/.emacs.d/custom.el")
+;; (setq custom-file (locate-user-emacs-file "custom.el"))
 
 ;; bootstrap `use-package'
 (unless (package-installed-p 'use-package)
@@ -170,6 +191,7 @@
   (require-init 'init-dumbjump)
   (require-init 'init-web)
 
+  (require-init 'init-elisp)
   (require-init 'init-go)
   (require-init 'init-nim)
   (require-init 'init-rust)
@@ -199,11 +221,17 @@
   (require-init 'init-clipboard)
 
   ;; theme must be put at the bottom
-  (require-init 'init-theme)
-  )
+  (require-init 'init-theme))
 
 (setq gc-cons-threshold best-gc-cons-threshold)
 
 (when (require 'time-date nil t)
   (message "Emacs startup time: %d seconds."
            (time-to-seconds (time-since emacs-load-start-time))))
+
+(provide 'init)
+
+;; Local Variables:
+;; no-byte-compile: t
+;; End:
+;;; init.el ends here
