@@ -12,13 +12,13 @@
 (setq column-number-mode t)
 
 ;; edit config
-(defun config-visit ()
+(defun sk/config-visit ()
   (interactive)
   (find-file "~/.emacs.d/init.el"))
 (global-set-key (kbd "C-c e") 'config-visit)
 
 ;; reload config
-(defun config-reload ()
+(defun sk/config-reload ()
   "Reloads ~/.emacs.d/init.el at runtime"
   (interactive)
   (load-file "~/.emacs.d/init.el"))

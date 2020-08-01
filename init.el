@@ -163,6 +163,7 @@
   (require-init 'init-treemacs)
 
   ;; programming
+  (require-init 'init-library)
   (require-init 'init-company)
   (require-init 'init-lsp)
   (require-init 'init-spinner)
