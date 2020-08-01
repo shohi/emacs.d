@@ -46,5 +46,11 @@
 (use-package go-impl
   :ensure t)
 
+;; NOTE: already handled by lsp
+;; (use-package flycheck-golangci-lint
+;;   :after flycheck
+;;   :ensure t
+;;   :hook (go-mode . flycheck-golangci-lint-setup))
+
 (provide 'init-go)
-;;; init-go.el ends here.
+;;; init-go.el ends here

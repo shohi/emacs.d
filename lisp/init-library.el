@@ -10,5 +10,10 @@
 (use-package dash-functional
   :ensure t)
 
+;; quickrun -  Run command quickly. This packages is inspired quickrun.vim
+;; https://github.com/emacsorphanage/quickrun
+(use-package quickrun
+  :ensure t)
+
 (provide 'init-library)
-;;; init-library.el ends here.
+;;; init-library.el ends here
