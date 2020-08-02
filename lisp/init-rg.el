@@ -12,4 +12,4 @@
   )
 
 (provide 'init-rg)
-;;; init-rg ends here.
+;;; init-rg ends here

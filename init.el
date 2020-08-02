@@ -98,6 +98,7 @@
 
 (package-initialize)
 
+
 ;; inhibit startup message
 (setq inhibit-startup-message t)
 
@@ -109,6 +110,13 @@
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
+
+;; install benchmark-init
+(use-package benchmark-init
+  :ensure t
+  :config
+  ;; To disable collection of benchmark data after init is done.
+  (add-hook 'after-init-hook 'benchmark-init/deactivate))
 
 ;; @see https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
 ;; Normally file-name-handler-alist is set to
@@ -189,9 +197,11 @@
   (require-init 'init-lsp)
   (require-init 'init-spinner)
   (require-init 'init-dumbjump)
-  (require-init 'init-web)
+
+  (require-init 'init-evil)
 
   (require-init 'init-elisp)
+  (require-init 'init-web)
   (require-init 'init-go)
   (require-init 'init-nim)
   (require-init 'init-rust)
