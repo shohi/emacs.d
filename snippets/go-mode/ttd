@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ttd
+# description: skip test with TODO marker
+# --
+t.Skip("TODO")

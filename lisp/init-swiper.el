@@ -39,4 +39,3 @@
 
 (provide 'init-swiper)
 ;;; init-swiper ends here.
-

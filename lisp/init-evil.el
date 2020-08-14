@@ -20,8 +20,10 @@
 (use-package evil-nerd-commenter
   :ensure t
   :config
-  ;; use default key-bindings
-  (evilnc-default-hotkeys))
+  ;; not enable default key-bindings as it has conflict
+  ;; with `projectile' prefix - `C-c p'
+  ;; (evilnc-default-hotkeys)
+  (global-set-key (kbd "M-;") 'evilnc-comment-or-uncomment-lines))
 
 ;; evil-matchit -  Vim matchit ported into Emacs
 ;; https://github.com/redguardtoo/evil-matchit

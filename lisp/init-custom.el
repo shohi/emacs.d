@@ -1,16 +1,19 @@
 ;; -*- coding: utf-8; lexical-binding: t; -*-
+
+;;; Commentary:
 ;; customized setting
 
+;;; Code:
 ;; kill current buffer
 (defun sk/kill-current-buffer ()
-  "Kills the current buffer."
+  "Kill the current buffer."
   (interactive)
   (kill-buffer (current-buffer)))
 
 ;; kill all buffers
 ;; https://stackoverflow.com/questions/3417438/close-all-buffers-besides-the-current-one-in-emacs
 (defun sk/kill-all-buffers ()
-  "Kill all buffers"
+  "Kill all buffers."
   (interactive)
   (mapc 'kill-buffer (buffer-list)))
 
@@ -21,8 +24,11 @@
   (interactive)
   (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
 
+;; set calendar-week-start-day to monday
+(setq calendar-week-start-day 1)
+
 (defun sk/insert-week-num-at-point ()
-  "Insert current week num at the cursor"
+  "Insert current week num at the cursor."
   (interactive)
   (insert (format-time-string "W%W")))
 
@@ -53,3 +59,6 @@
       (global-set-key (kbd "C-c c") 'pbcopy)
       (global-set-key (kbd "C-c v") 'pbpaste)
       (global-set-key (kbd "C-c x") 'pbcut)))
+
+(provide 'init-custom)
+;;; init-custom.el ends here
