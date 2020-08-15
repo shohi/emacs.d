@@ -32,6 +32,14 @@
 (setq emacs-load-start-time (current-time))
 
 ;;----------------------------------------------------------------------------
+;; Source directory
+;;----------------------------------------------------------------------------
+;; put emacs source codes at `~/.src/emacs'
+;; git clone https://github.com/emacs-mirror/emacs.git
+(if (file-directory-p "~/.src/emacs")
+    (setq source-directory "~/.src/emacs"))
+
+;;----------------------------------------------------------------------------
 ;; Which functionality to enable (use t or nil for true and false)
 ;;----------------------------------------------------------------------------
 (setq *is-a-mac* (eq system-type 'darwin))

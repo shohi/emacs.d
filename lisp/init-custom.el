@@ -60,5 +60,12 @@
       (global-set-key (kbd "C-c v") 'pbpaste)
       (global-set-key (kbd "C-c x") 'pbcut)))
 
+;; show current file's full path
+;; https://stackoverflow.com/questions/3669511/the-function-to-show-current-files-full-path-in-mini-buffer
+(defun sk/show-file-name ()
+  "Show the full path file name in the minibuffer."
+  (interactive)
+  (message (buffer-file-name)))
+
 (provide 'init-custom)
 ;;; init-custom.el ends here
