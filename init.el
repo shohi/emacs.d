@@ -61,6 +61,10 @@
 ;; https://github.com/bbatsov/prelude/issues/1225
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
+;; unable to install package due to signature check failure
+;; https://emacs.stackexchange.com/questions/233/how-to-proceed-on-package-el-signature-check-failure
+(setq package-check-signature nil)
+
 ;;----------------------------------------------------------------------------
 ;; global setting and package bootloader
 ;;----------------------------------------------------------------------------
