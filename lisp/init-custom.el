@@ -85,8 +85,9 @@
 ;; 8. learn the most important help functions
 ;; 9. master emacs's regular expressions
 
-(global-set-key "\C-x\C-m" 'execute-extended-command)
-(global-set-key "\C-c\C-m" 'execute-extended-command)
+;; require helm
+(global-set-key "\C-x\C-m" 'helm-M-x)
+(global-set-key "\C-c\C-m" 'helm-M-x)
 
 (global-set-key "\C-c\C-d" 'backward-kill-word)
 ;; (global-set-key "\C-x\C-k" 'kill-region)
