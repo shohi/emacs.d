@@ -1,9 +1,19 @@
 ;; -*- coding: utf-8; lexical-binding: t; -*-
 ;; formatter using external programs
 
+;; basic setting for shellscript modes
+(setq-default sh-basic-offset 2)
+
 ;; shell formatter
 (use-package shfmt
-  :ensure t)
+  :ensure t
+  :after reformatter
+  :config
+  ;; use 2 spaces for indent
+  (customize-save-variable 'shfmt-arguments '("-ci" "-i" "2"))
+
+  ;; format on save
+  (add-hook 'shell-script-mode-hook 'shfmt-on-save-mode))
 
 ;; elisp formatter
 (use-package elisp-format

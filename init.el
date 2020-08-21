@@ -18,7 +18,7 @@
 (push (expand-file-name "~/.emacs.d/lisp") load-path)
 ;; (push (locate-user-emacs-file "lisp") load-path)
 
-(let* ((minver "26.3"))
+(let* ((minver "27.1"))
   (when (version< emacs-version minver)
     (error "Emacs v%s or higher is required" minver)))
 
@@ -34,10 +34,10 @@
 ;;----------------------------------------------------------------------------
 ;; Source directory
 ;;----------------------------------------------------------------------------
-;; put emacs source codes at `~/.src/emacs'
+;; put emacs source codes at `~/.emacs.d/.repo/emacs-mirror/emacs'
 ;; git clone https://github.com/emacs-mirror/emacs.git
-(if (file-directory-p "~/.src/emacs")
-    (setq source-directory "~/.src/emacs"))
+(if (file-directory-p "~/.emacs.d/.repo/emacs-mirror/emacs")
+    (setq source-directory "~/.emacs.d/.repo/emacs-mirror/emacs"))
 
 ;;----------------------------------------------------------------------------
 ;; Which functionality to enable (use t or nil for true and false)
