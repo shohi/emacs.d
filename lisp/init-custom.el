@@ -67,5 +67,33 @@
   (interactive)
   (message (buffer-file-name)))
 
+;; go to last heading for org-mode
+;; https://emacs.stackexchange.com/questions/3318/org-mode-goto-last-heading
+(defun sk/org-goto-last-heading ()
+  (interactive)
+  (org-end-of-subtree))
+
+;; effetive editing
+;; https://sites.google.com/site/steveyegge2/effective-emacs
+;; 1. swap Caps-Lock and Control
+;; 2. invoke M-x without the alt key
+;; 3. prefer backward-kill-word over backspace
+;; 4. use incremental search for navigation
+;; 5. use temp buffers
+;; 6. master the buffer and window commands
+;; 7. lose the UI
+;; 8. learn the most important help functions
+;; 9. master emacs's regular expressions
+
+;; require helm
+(global-set-key "\C-x\C-m" 'helm-M-x)
+(global-set-key "\C-c\C-m" 'helm-M-x)
+
+(global-set-key "\C-c\C-d" 'backward-kill-word)
+;; (global-set-key "\C-x\C-k" 'kill-region)
+;; (global-set-key "\C-c\C-k" 'kill-region)
+
+(defalias 'qrr 'query-replace-regexp)
+
 (provide 'init-custom)
 ;;; init-custom.el ends here

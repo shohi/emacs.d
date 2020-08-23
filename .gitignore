@@ -62,3 +62,6 @@ srecode-map.el
 games/
 speed-type/
 xkcd/
+
+# git repos
+.repo/
