@@ -81,11 +81,28 @@
   (when (not maybe-disabled)
     (load (file-truename (format "%s/%s" my-lisp-dir pkg)) t t)))
 
+;; TODO
+;; https://www.gnu.org/software/emacs/manual/html_node/elisp/Misc-Network.html
+(defun check-vpn-up (&optional private-addr-pattern)
+  "Check whether the vpn is up. The address pattern is designated by
+PRIVATE-ADDR-PATTERN. If not provided, `172.24.*' will be used.
+
+VPN is considered to be up when
+- its flags contain `up'/`running'/`pointtopoint'
+- its address matches PRIVATE-ADDR-PATTERN
+")
+
+(defun use-elpa-mirror-p ()
+  "Return whether elpa mirror should be used.
+If `DISABLE_ELPA_MIRROR' env is set to `FALSE' or VPN is not up, return true.
+Otherwise, return nil"
+  (string-equal (getenv "DISABLE_ELPA_MIRROR") "false"))
+
 ;; replace with USTC mirror
 ;; https://mirrors.ustc.edu.cn/help/elpa.html
 (require 'package)
 (setq package-enable-at-startup nil)
-(if (string-equal (getenv "DISABLE_ELPA_MIRROR") "false")
+(if (use-elpa-mirror-p)
     (setq package-archives
 	  '(("localelpa" . "~/.emacs.d/localelpa/")
 	    ("gnu" . "https://elpa.gnu.org/packages/")
@@ -105,7 +122,6 @@
 	  ("org" . "https://orgmode.org/elpa/"))))
 
 (package-initialize)
-
 
 ;; inhibit startup message
 (setq inhibit-startup-message t)
