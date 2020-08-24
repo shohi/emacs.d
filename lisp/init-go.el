@@ -62,6 +62,10 @@
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save)
   (bind-key "C-x C-v" #'go-alternate-visit-at-point)
+
+  ;; FIXME: not work, will automatically insert `OIOI'
+  ;; (bind-key "M-[" #'beginning-of-defun)
+  ;; (bind-key "M-]" #'end-of-defun)
   )
 
 ;; gotest: Emacs mode to go unit test command line tool

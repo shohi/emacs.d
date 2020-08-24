@@ -239,7 +239,7 @@ Otherwise, return nil"
   (require-init 'init-formatter)
 
   ;; writing
-  (require-init 'init-writeroom)
+  (require-init 'init-writing)
 
   ;; docker
   (require-init 'init-docker)
@@ -249,6 +249,7 @@ Otherwise, return nil"
 
   ;; customized setting
   (require-init 'init-custom)
+  (require-init 'init-debug)
 
   ;; Org mode
   (require-init 'init-org)
