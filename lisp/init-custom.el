@@ -73,7 +73,14 @@
   (interactive)
   (org-end-of-subtree))
 
-;; effetive editing
+;; show current file's full path in mini buffer
+;; https://stackoverflow.com/questions/3669511/the-function-to-show-current-files-full-path-in-mini-buffer
+(defun sk/show-file-name ()
+  "Show the full path file name in the minibuffer."
+  (interactive)
+  (message (buffer-file-name)))
+
+;; effective editing
 ;; https://sites.google.com/site/steveyegge2/effective-emacs
 ;; 1. swap Caps-Lock and Control
 ;; 2. invoke M-x without the alt key

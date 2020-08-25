@@ -66,6 +66,8 @@
   ;; FIXME: not work, will automatically insert `OIOI'
   ;; (bind-key "M-[" #'beginning-of-defun)
   ;; (bind-key "M-]" #'end-of-defun)
+
+  (bind-key "C-c C-c" #'sk/show-file-name go-mode-map)
   )
 
 ;; gotest: Emacs mode to go unit test command line tool
