@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: pssh
+# description: Provide SSH
+# --
+# add credentials and make sure the domain is accepted.
+# use following shell command and docker argument to get `SSH_PRIVATE_KEY`
+# and parse it to docker build
+#	--build-arg SSH_PRIVATE_KEY="$(cat ~/.ssh/id_rsa)"
+
+ARG SSH_PRIVATE_KEY
+RUN mkdir /root/.ssh/ \
+	&& ssh-keyscan github.com >> /root/.ssh/known_hosts \
+	&& echo "UserKnownHostsFile ~/.ssh/known_hosts" > /root/.ssh/config \
+	&& echo "LogLevel=quiet" >> /root/.ssh/config \
+	&& echo "${SSH_PRIVATE_KEY}" > /root/.ssh/id_rsa \
+	&& chmod 600 /root/.ssh/id_rsa

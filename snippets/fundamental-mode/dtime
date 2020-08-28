@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: dtime
+# description: get current datetime in format 'YYYY-MM-dd HH:mm:ss'
+# --
+`(format-time-string "%Y-%m-%d %H:%M:%S" (current-time))`
