@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: mode
+# description: mode line for snippet with extra newline
+# --
+# -*- mode: snippet -*-
+# name: `(file-name-base (buffer-file-name))`
+# description: $1
+# --
+$0

@@ -87,5 +87,11 @@
   :bind
   ("C-c y" . youdao-dictionary-search-at-point))
 
+;; uuidgen -  UUID generation implemented in elisp.
+;; https://github.com/kanru/uuidgen-el
+
+(use-package uuidgen
+  :ensure t)
+
 (provide 'init-base)
 ;;; init-base.el ends here.

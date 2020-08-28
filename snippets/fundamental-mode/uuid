@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# key: uuid
+# description: generate a new uuid
+# --
+`(uuidgen-4)`

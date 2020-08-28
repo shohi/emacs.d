@@ -1,0 +1,66 @@
+# -*- mode: snippet -*-
+# name: cmdroot
+# description: root entry with cobra command
+# --
+package cmd
+
+import (
+	"fmt"
+	"os"
+	"time"
+
+	"github.com/spf13/cobra"
+
+	log "github.com/sirupsen/logrus"
+)
+
+
+var showVersion bool
+var gitCommit = "not set"
+var logLevel string
+
+// var conf = config.Config{}
+
+var rootCmd = &cobra.Command{
+	Use:   "TODO",
+	Short: "TODO",
+	Run: func(cmd *cobra.Command, args []string) {
+		if showVersion {
+			fmt.Printf("version: %v\n", gitCommit)
+			os.Exit(0)
+		}
+
+		initLog(logLevel)
+
+		// TODO
+	},
+}
+
+// setupFlags sets flags for comand line
+func setupFlags(cmd *cobra.Command) {
+	flagSet := cmd.Flags()
+
+	flagSet.BoolVarP(&showVersion, "version", "v", false, "show version")
+	flagSet.StringVar(&logLevel, "loglevel", "INFO", "log level")
+	// TODO: setup conf
+}
+
+func initLog(level string) {
+	l, err := log.ParseLevel(level)
+	if err != nil {
+		l = log.InfoLevel
+	}
+
+	log.SetLevel(l)
+	log.SetFormatter(&log.TextFormatter{
+		DisableColors:    true,
+		DisableTimestamp: true,
+	})
+}
+
+// Execute is the entrance.
+func Execute() {
+	setupFlags(rootCmd)
+
+	_ = rootCmd.Execute()
+}

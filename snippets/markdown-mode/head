@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: head
+# description: Jekyll post header
+# --
+---
+layout: post
+title: ${1:title}
+category: ${2:tech}
+guid:`(uuidgen-4)`
+
+---
+{% include JB/setup %}
