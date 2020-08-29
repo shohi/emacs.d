@@ -1,6 +1,10 @@
 ;; -*- coding: utf-8; lexical-binding: t; -*-
 ;; rust setup, refer https://lupan.pl/dotemacs/
 
+;; TODO: update setting - use rustic
+;; https://people.gnome.org/~federico/blog/bringing-my-emacs-from-the-past.html
+;; https://lupan.pl/dotemacs/
+
 (use-package cargo
   :ensure t
   :defer)

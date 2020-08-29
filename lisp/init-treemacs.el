@@ -53,7 +53,45 @@
       (`(t . t)
        (treemacs-git-mode 'deferred))
       (`(t . _)
-       (treemacs-git-mode 'simple))))
+       (treemacs-git-mode 'simple)))
+(defun sk/treemacs--workspace-contains-filename-p (w f)
+  "Test whether the workspace W contain filename F. Return t if yes, otherwise nil."
+  (require 'dash)
+  (let ((pred (lambda (item)
+		(s-matches? (treemacs-project->path item) f))))
+	 (if (-filter pred (treemacs-workspace->projects w))
+	     t
+	   nil)))
+
+;; helper function to switch to workspace where current buffer is in
+;; refer, https://github.com/Alexander-Miller/treemacs/issues/708
+(defun sk/treemacs--find-workspace-by-filename (f)
+  "Find treemacs workspace by given file name F, where F is absolute path.
+If not found, return nil; otherwise, return the workspace."
+  (when (file-exists-p f)
+    (require 'dash)
+    (let* ((pred (lambda (w) (sk/treemacs--workspace-contains-filename-p w f)))
+	   (m (-filter pred treemacs--workspaces)))
+      (if m
+	  (first m)
+	nil))))
+
+(defun sk/treemacs-switch-to-workspace ()
+  "Switch to treemacs workspace which containes the file of current buffer.
+If no matched workspace found, print a warn."
+  (interactive)
+  (if (boundp 'treemacs--workspaces)
+      (progn
+        (let* ((f (buffer-file-name))
+	       (w (sk/treemacs--find-workspace-by-filename f)))
+	  (when w
+	    ;; (treemacs-current-workspace)
+            (setf (treemacs-current-workspace) w)
+            (treemacs--invalidate-buffer-project-cache)
+	    (treemacs--rerender-after-workspace-change)
+	    (run-hooks 'treemacs-switch-workspace-hook))))
+    ;; init treemacs
+    (treemacs))))
   :bind
   (:map global-map
         ("M-0"       . treemacs-select-window)
@@ -70,6 +108,51 @@
 (use-package treemacs-magit
   :after treemacs magit
   :ensure t)
+
+(defun sk/treemacs--workspace-contains-filename-p (w f)
+  "Test whether the workspace W contain filename F. Return t if yes, otherwise nil."
+  (require 'dash)
+  (let ((pred (lambda (item)
+		(s-matches? (treemacs-project->path item) f))))
+	 (if (-filter pred (treemacs-workspace->projects w))
+	     t
+	   nil)))
+
+;; helper function to switch to workspace where current buffer is in
+;; refer, https://github.com/Alexander-Miller/treemacs/issues/708
+(defun sk/treemacs--find-workspace-by-filename (f)
+  "Find treemacs workspace by given file name F, where F is absolute path.
+If not found, return nil; otherwise, return the workspace."
+  (require 'dash)
+  (when (file-exists-p f)
+    (let* ((pred (lambda (w) (sk/treemacs--workspace-contains-filename-p w f)))
+	   (m (-filter pred treemacs--workspaces)))
+      (if m
+	  (first m)
+	nil))))
+
+(defun sk/treemacs-switch-to-workspace ()
+  "Switch to treemacs workspace which containes the file of current buffer.
+If no matched workspace found, print a warn."
+  (interactive)
+  (require 'cl-lib)
+  (require 'treemacs)
+  (if (boundp 'treemacs--workspaces)
+      (progn
+        (let* ((f (buffer-file-name))
+	       (w (sk/treemacs--find-workspace-by-filename f)))
+	  (when w
+	    ;; (treemacs-current-workspace)
+            (setf (treemacs-current-workspace) w)
+            (treemacs--invalidate-buffer-project-cache)
+	    (treemacs--rerender-after-workspace-change)
+	    (run-hooks 'treemacs-switch-workspace-hook))))
+    ;; init treemacs
+    (treemacs)))
+
+;; FIXME: not work, always throw error
+;; Symbol’s function definition is void: \(setf\ treemacs-current-workspace\)
+(global-set-key (kbd "C-x t g") 'sk/treemacs-switch-to-workspace)
 
 (provide 'init-treemacs)
 ;;; init-treemacs.el ends here.

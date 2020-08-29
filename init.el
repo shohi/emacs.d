@@ -160,6 +160,7 @@ Otherwise, return nil"
   (require-init 'init-hydra)
   (require-init 'init-frame)
   (require-init 'init-spell)
+  (require-init 'init-link)
 
   ;; Org Mode
   ;; (require-init 'init-org)

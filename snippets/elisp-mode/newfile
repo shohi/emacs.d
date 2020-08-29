@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: newfile
+# description: create a init-[xxx].el template
+# --
+;; -*- coding: utf-8; lexical-binding: t; -*-
+;; setting for ${1}
+
+$0
+
+(provide '`(file-name-base (buffer-file-name))`)
+;;; `(file-name-base (buffer-file-name))` ends here.
