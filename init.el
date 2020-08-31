@@ -251,6 +251,7 @@ Otherwise, return nil"
   ;; customized setting
   (require-init 'init-custom)
   (require-init 'init-debug)
+  (require-init 'init-presentation)
 
   ;; Org mode
   (require-init 'init-org)

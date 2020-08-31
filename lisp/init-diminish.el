@@ -18,7 +18,8 @@
   (diminish 'yas-minor-mode)
   (diminish 'flycheck-mode)
   (diminish 'helm-mode)
-  (diminish 'git-gutter-mode))
+  (diminish 'git-gutter-mode)
+  (diminish 'osx-clipboard-mode))
 
 (provide 'init-diminish)
 ;;; init-diminish ends here.

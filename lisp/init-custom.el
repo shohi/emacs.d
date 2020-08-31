@@ -102,5 +102,7 @@
 
 (defalias 'qrr 'query-replace-regexp)
 
+;; FIXME: add function to open `init-[package].el' from init.el
+
 (provide 'init-custom)
 ;;; init-custom.el ends here
