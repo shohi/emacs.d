@@ -80,6 +80,19 @@
   (interactive)
   (message (buffer-file-name)))
 
+;; open a temporary buffer
+;; https://stackoverflow.com/questions/10363982/how-can-i-open-a-temporary-buffer
+(defun sk/create-temp-org-buffer ()
+  "generate temporary buffer and switch to it"
+  (interactive)
+  (switch-to-buffer
+   (get-buffer-create
+    (concat "*scratch-"
+	    (format-time-string "%m.%dT%H.%M.%S")
+	    "*")))
+  ;; set to org-mode
+  (org-mode))
+
 ;; effective editing
 ;; https://sites.google.com/site/steveyegge2/effective-emacs
 ;; 1. swap Caps-Lock and Control

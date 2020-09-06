@@ -101,13 +101,14 @@ If no matched workspace found, print a warn."
   (if (eq 'none (treemacs-current-visibility))
       ;; init treemacs
       (treemacs)
-    (let ((w (sk/treemacs--find-workspace-by-filename (buffer-file-name))))
-      (when w
-	(require 'treemacs)
-        (setf (treemacs-current-workspace) w)
-        (treemacs--invalidate-buffer-project-cache)
-        (treemacs--rerender-after-workspace-change)
-        (run-hooks 'treemacs-switch-workspace-hook)))))
+    (progn
+      (require 'treemacs)
+      (let ((w (sk/treemacs--find-workspace-by-filename (buffer-file-name))))
+	(when w
+          (setf (treemacs-current-workspace) w)
+          (treemacs--invalidate-buffer-project-cache)
+          (treemacs--rerender-after-workspace-change)
+          (run-hooks 'treemacs-switch-workspace-hook))))))
 
 ;; FIXME: not work, always throw error
 ;; Symbol’s function definition is void: \(setf\ treemacs-current-workspace\)
