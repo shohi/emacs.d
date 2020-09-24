@@ -65,3 +65,6 @@ xkcd/
 
 # git repos
 .repo/
+
+# anki
+request/

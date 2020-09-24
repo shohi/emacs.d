@@ -240,6 +240,7 @@ Otherwise, return nil"
   (require-init 'init-formatter)
 
   ;; writing
+  (require-init 'init-anki)
   (require-init 'init-writing)
 
   ;; docker
