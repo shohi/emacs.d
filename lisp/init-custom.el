@@ -83,7 +83,7 @@
 ;; open a temporary buffer
 ;; https://stackoverflow.com/questions/10363982/how-can-i-open-a-temporary-buffer
 (defun sk/create-temp-org-buffer ()
-  "generate temporary buffer and switch to it"
+  "Generate temporary orgmode buffer and switch to it."
   (interactive)
   (switch-to-buffer
    (get-buffer-create
@@ -92,6 +92,15 @@
 	    "*")))
   ;; set to org-mode
   (org-mode))
+
+;; switch to previous buffer
+;; https://emacsredux.com/blog/2013/04/28/switch-to-previous-buffer/
+;; or using `mode-line-other-buffer'
+(defun sk/switch-to-previous-buffer ()
+  "Switch to previously open buffer.
+Repeated invocations toggle between the two most recently open buffers."
+  (interactive)
+  (switch-to-buffer (other-buffer (current-buffer) 1)))
 
 ;; effective editing
 ;; https://sites.google.com/site/steveyegge2/effective-emacs

@@ -175,6 +175,7 @@ Otherwise, return nil"
 
   ;; Movement
   (require-init 'init-move)
+  (require-init 'init-key-chord)
 
   ;; Editing
   (require-init 'init-edit)
@@ -246,8 +247,9 @@ Otherwise, return nil"
   ;; docker
   (require-init 'init-docker)
 
-  ;; diminish
-  (require-init 'init-diminish)
+  ;; yaml
+  (require-init 'init-yaml-mode)
+  (require-init 'init-k8s)
 
   ;; customized setting
   (require-init 'init-custom)
@@ -262,6 +264,9 @@ Otherwise, return nil"
 
   ;; osx clipboard
   (require-init 'init-clipboard)
+
+  ;; diminish
+  (require-init 'init-diminish)
 
   ;; theme must be put at the bottom
   (require-init 'init-theme))

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: httpwr
+# description: arguments of http handler
+# --
+w http.ResponseWriter, r *http.Request

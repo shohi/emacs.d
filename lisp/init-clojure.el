@@ -19,7 +19,7 @@
 
 ;; First install the package:
 ;; https://github.com/borkdude/flycheck-clj-kondo
-;; require `clj-kondo` installed.
+;; require `clj-kondo` installed - brew install borkdude/brew/clj-kondo
 (use-package flycheck-clj-kondo
   :after flycheck
   :ensure t)

@@ -7,7 +7,12 @@
   :config (progn
 	    ;; use flycheck, not flymake
 	    (setq lsp-prefer-flymake nil)
-	    (setq lsp-enable-file-watchers nil))
+	    (setq lsp-enable-file-watchers nil)
+
+	    ;; org-store-link binds to "C-c l" globally
+	    ;; here using "C-c C-l" for lsp-keymap-prefix
+	    ;; https://github.com/emacs-lsp/lsp-mode/issues/1532
+	    (define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map))
   :hook
   ;; golang
   (go-mode . lsp-deferred)
