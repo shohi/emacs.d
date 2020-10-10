@@ -10,27 +10,27 @@
 (setq magit-status-margin
       '(t "%Y-%m-%d %H:%M " magit-log-margin-width t 18))
 
-;; use diff-hl instead of git-gutter
-;; https://github.com/dgutov/diff-hl/issues/92
-(use-package diff-hl
+;; NOTE: diff-hl does not work well, use git-gutter instead
+(use-package git-gutter
   :ensure t
-  :bind (("C-c C-p" . diff-hl-previous-hunk)
-	 ("C-c C-n" . diff-hl-next-hunk))
-  :config
-  ;; Highlight changed files in the fringe of Dired
-  (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
+  :bind (("C-c C-p" . git-gutter:previous-hunk)
+         ("C-c C-n" . git-gutter:next-hunk))
+  :init (global-git-gutter-mode 1))
 
-  ;; TODO: integrate diff-hl into treemacs
-  (global-diff-hl-mode)
-
-  ;; Fall back to the display margin, if the fringe is unavailable
-  (unless (display-graphic-p) (diff-hl-margin-mode)))
-
-;; (use-package git-gutter
+;; (use-package diff-hl
 ;;   :ensure t
-;;   :bind (("C-c C-p" . git-gutter:previous-hunk)
-;;          ("C-c C-n" . git-gutter:next-hunk))
-;;   :init (global-git-gutter-mode 1))
+;;   :bind (("C-c C-p" . diff-hl-previous-hunk)
+;; 	 ("C-c C-n" . diff-hl-next-hunk))
+;;   :config
+;;   ;; Highlight changed files in the fringe of Dired
+;;   (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
+
+;;   ;; TODO: integrate diff-hl into treemacs
+;;   (global-diff-hl-mode)
+
+;;   ;; Fall back to the display margin, if the fringe is unavailable
+;;   (unless (display-graphic-p) (diff-hl-margin-mode)))
+
 
 (use-package git-timemachine
   :ensure t)
