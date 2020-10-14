@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: bbhead
+# description: header for babashka scripts
+# --
+#!/usr/bin/env bb
+;; -*- mode: clojure; -*-
+
+$1

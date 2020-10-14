@@ -17,6 +17,7 @@
   (add-hook 'prog-mode-hook #'yas-minor-mode)
   (add-hook 'org-mode-hook #'yas-minor-mode)
   (add-hook 'go-mode-hook #'yas-minor-mode)
+  (add-hook 'fundamental-mode-hook #'yas-minor-mode)
   )
 
 ;; refer, https://github.com/joaotavora/yasnippet/blob/master/README.mdown

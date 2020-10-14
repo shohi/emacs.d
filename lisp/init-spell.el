@@ -12,6 +12,15 @@
 ;;    git clone https://github.com/LibreOffice/dictionaries
 ;;    cp dictionaries/en/en* ~/Library/Spelling
 ;;    hunspell -D
+;; * ignore word check
+;;   https://www.systutorials.com/docs/linux/man/4-hunspell/
+;;   https://github.com/redguardtoo/wucuo
+;;   - create a personal dictionary for aspell/hunspell, thus, hunspell will
+;;     not take the word as typo
+;;   - personal dictionary files are in the format
+;;     + TODO: customize dictionary path programmatically
+;;     + "~/.hunspell_<lang>_<region>", e.g. ~/.hunspell_en_US)
+;;
 
 ;;; Code:
 ;; refer https://github.com/redguardtoo/emacs.d/blob/master/lisp/init-spelling.el
