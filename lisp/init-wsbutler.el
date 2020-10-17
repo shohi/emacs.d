@@ -4,6 +4,7 @@
 
 (use-package ws-butler
   :ensure t
+  :diminish
   :defer
   :init
   (add-hook 'prog-mode-hook #'ws-butler-mode))

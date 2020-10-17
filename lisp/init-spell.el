@@ -29,6 +29,9 @@
 ;; https://github.com/redguardtoo/wucuo
 (use-package wucuo
   :ensure t
+  ;; NOTE wucuo-mode's indicator is `Fly'
+  ;; which is a litter confusing.
+  :diminish
   :hook
   (prog-mode . wucuo-start)
   (text-mode . wucuo-start))

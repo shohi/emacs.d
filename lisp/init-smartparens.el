@@ -5,6 +5,7 @@
 
 (use-package smartparens
   :ensure t
+  :diminish
   :config
   ;; default configure
   (require 'smartparens-config)

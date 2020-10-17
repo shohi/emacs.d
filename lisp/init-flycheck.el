@@ -3,6 +3,8 @@
 
 (use-package flycheck
   :ensure t
+  :defer t
+  :diminish
   :config
   ;; (add-hook 'go-mode-hook #'flycheck-mode)
 

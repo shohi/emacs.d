@@ -8,6 +8,7 @@
 
 (use-package yasnippet
   :ensure t
+  :diminish yas-minor-mode
   :config
   (use-package yasnippet-snippets
     :ensure t)
