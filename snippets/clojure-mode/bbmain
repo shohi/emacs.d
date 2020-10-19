@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: bbmain
+# description: main entry for babashka scripts
+# --
+(defn main
+  "main entry"
+  [input]
+  $1
+  )
+
+(main *command-line-args*)
