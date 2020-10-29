@@ -158,7 +158,6 @@ Otherwise, return nil"
   (require-init 'init-base)
   (require-init 'init-mac)
   (require-init 'init-hydra)
-  (require-init 'init-frame)
   (require-init 'init-spell)
   (require-init 'init-link)
 
@@ -198,7 +197,7 @@ Otherwise, return nil"
   (require-init 'init-hungrydelete)
   (require-init 'init-eyebrowse)
   (require-init 'init-rainbow)
-  (require-init 'init-acewindow)
+  (require-init 'init-window)
   (require-init 'init-sysmon)
 
   ;; not available on melpa yet, use local source
@@ -236,6 +235,7 @@ Otherwise, return nil"
   (require-init 'init-go)
   (require-init 'init-nim)
   (require-init 'init-rust)
+  (require-init 'init-lua)
 
   (require-init 'init-markdown)
   (require-init 'init-formatter)
