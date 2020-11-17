@@ -61,6 +61,8 @@
   ;; require `goimports' installed
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save)
+  (add-hook 'go-mode-hook (lambda()
+			    (setq tab-width 4)))
   (bind-key "C-x C-v" #'go-alternate-visit-at-point go-mode-map)
 
   ;; FIXME: not work, will automatically insert `OIOI'

@@ -6,7 +6,7 @@
 layout: post
 title: ${1:title}
 category: ${2:tech}
-guid:`(uuidgen-4)`
-
+guid: `(uuidgen-4)`
+tags: [tech, $3]
 ---
 {% include JB/setup %}
