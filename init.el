@@ -99,7 +99,11 @@ VPN is considered to be up when
 (defun use-elpa-mirror-p ()
   "Return whether elpa mirror should be used.
 If `DISABLE_ELPA_MIRROR' env is set to `FALSE' or VPN is not up, return true.
-Otherwise, return nil"
+Otherwise, return nil. Refer https://www.gnu.org/software/emacs/manual/html_node/elisp/Misc-Network.html.
+Rules:
+1. vpn tunnel interface starts with `utun'
+2. vpn tunnel is assigned wit IPv4 address like [172 31 1 16 0]
+"
   (string-equal (getenv "DISABLE_ELPA_MIRROR") "false"))
 
 ;; replace with USTC mirror
