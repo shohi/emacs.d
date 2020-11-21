@@ -17,6 +17,7 @@ git clone https://github.com/shohi/emacs.d.git .emacs.d
 4. Jonathan Jin's Emacs configuration, <http://jonathanj.in/dotemacs/>
 5. freetonik's Emacs configuration, <https://github.com/freetonik/emacs-dotfiles>
 6. M-EMACS, https://github.com/MatthewZMD/.emacs.d
+7. cabins Emacs configuration, https://github.com/cabins/.emacs.d
 
 #### blog
 1. Using Emacs, <https://github.com/zamansky/using-emacs>
