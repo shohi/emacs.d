@@ -13,9 +13,9 @@
 	    ;; here using "C-c C-l" for lsp-keymap-prefix
 	    ;; https://github.com/emacs-lsp/lsp-mode/issues/1532
 	    (define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map))
-  :hook
-  ;; golang
-  (go-mode . lsp-deferred)
+  :hook ((lsp-mode . lsp-enable-which-key-integration)
+	 (go-mode . lsp-deferred))
+
   )
 
 ;; optional - provides fancy overlay information

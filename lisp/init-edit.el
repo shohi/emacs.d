@@ -23,7 +23,10 @@
 ;; https://github.com/bbatsov/crux
 (use-package crux
   :ensure t
-  :bind ("C-c k" . crux-smart-kill-line))
+  :bind (("C-a" . crux-move-beginning-of-line)
+	 ("C-k" . crux-smart-kill-line)
+	 ("C-c j" . crux-top-join-line)
+	 ))
 
 (provide 'init-edit)
 ;;; init-edit.el ends here.
