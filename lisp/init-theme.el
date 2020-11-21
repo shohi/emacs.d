@@ -16,5 +16,9 @@
 
 (load-theme 'zenburn t)
 
+;; status mode line
+;; smart-mode-line https://github.com/Malabarba/smart-mode-line
+;; TODO
+
 (provide 'init-theme)
 ;;; init-theme.el ends here.

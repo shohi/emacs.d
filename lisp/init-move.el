@@ -16,6 +16,9 @@
 	((looking-at "\\s)") (forward-char 1) (backward-list 1))
 	(t (self-insert-command (or arg 1)))))
 
+;; move-text - move current line or region up or down
+;; https://github.com/emacsfodder/move-text
+;; alternative: https://github.com/rejeep/drag-stuff.el
 (use-package move-text
   :ensure t
   :bind

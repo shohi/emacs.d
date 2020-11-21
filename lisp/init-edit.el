@@ -13,5 +13,17 @@
   :config
   (simpleclip-mode 0))
 
+;; deletes all the whitespace when you hit backspace or delete
+(use-package hungry-delete
+  :ensure t
+  :config
+  (global-hungry-delete-mode))
+
+;; crux - A Collection of Ridiculously Useful eXtensions for Emacs
+;; https://github.com/bbatsov/crux
+(use-package crux
+  :ensure t
+  :bind ("C-c k" . crux-smart-kill-line))
+
 (provide 'init-edit)
 ;;; init-edit.el ends here.

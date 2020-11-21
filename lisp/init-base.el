@@ -15,14 +15,14 @@
 (defun sk/config-visit ()
   (interactive)
   (find-file "~/.emacs.d/init.el"))
-(global-set-key (kbd "C-c e") 'config-visit)
+(global-set-key (kbd "C-c e") 'sk/config-visit)
 
 ;; reload config
 (defun sk/config-reload ()
   "Reloads ~/.emacs.d/init.el at runtime"
   (interactive)
   (load-file "~/.emacs.d/init.el"))
-(global-set-key (kbd "C-c r") 'config-reload)
+(global-set-key (kbd "C-c r") 'sk/config-reload)
 
 ;; disable menus and scrollbar
 (tool-bar-mode -1)
@@ -33,11 +33,14 @@
 (setq ring-bell-function 'ignore)
 
 ;; set utf-8 encoding
-(setq locale-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-selection-coding-system 'utf-8)
-(prefer-coding-system 'utf-8)
+(setq locale-coding-system 'utf-8)
+(setq default-buffer-file-coding-system 'utf-8)
+
 
 ;; disable backups and auto-saves
 (setq make-backup-files nil) ; stop creating backup~ files
@@ -89,14 +92,17 @@
 
 ;; uuidgen -  UUID generation implemented in elisp.
 ;; https://github.com/kanru/uuidgen-el
-
 (use-package uuidgen
   :ensure t)
-
 
 ;; enable view-mode for read-only buffer automatically
 ;; https://lobste.rs/s/fguinn/batteries_included_with_emacs
 (setq view-read-only t)
+
+;; restart-emacs - A simple emacs package to restart
+;; emacs from within emacs
+(use-package restart-emacs
+  :ensure t)
 
 (provide 'init-base)
 ;;; init-base.el ends here.

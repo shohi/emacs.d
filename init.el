@@ -42,12 +42,12 @@
 ;;----------------------------------------------------------------------------
 ;; Which functionality to enable (use t or nil for true and false)
 ;;----------------------------------------------------------------------------
-(setq *is-a-mac* (eq system-type 'darwin))
-(setq *win64* (eq system-type 'windows-nt))
-(setq *cygwin* (eq system-type 'cygwin) )
-(setq *linux* (or (eq system-type 'gnu/linux) (eq system-type 'linux)) )
-(setq *unix* (or *linux* (eq system-type 'usg-unix-v) (eq system-type 'berkeley-unix)) )
-(setq *no-memory* (cond
+(defconst *is-a-mac* (eq system-type 'darwin))
+(defconst *win64* (eq system-type 'windows-nt))
+(defconst *cygwin* (eq system-type 'cygwin) )
+(defconst *linux* (or (eq system-type 'gnu/linux) (eq system-type 'linux)) )
+(defconst *unix* (or *linux* (eq system-type 'usg-unix-v) (eq system-type 'berkeley-unix)) )
+(defconst *no-memory* (cond
                    (*is-a-mac*
                     (< (string-to-number (nth 1 (split-string (shell-command-to-string "sysctl hw.physmem")))) 4000000000))
                    (*linux* nil)
@@ -194,7 +194,6 @@ Otherwise, return nil"
   (require-init 'init-beacon)
 
   (require-init 'init-linum)
-  (require-init 'init-hungrydelete)
   (require-init 'init-eyebrowse)
   (require-init 'init-rainbow)
   (require-init 'init-window)
@@ -276,6 +275,10 @@ Otherwise, return nil"
 (when (require 'time-date nil t)
   (message "Emacs startup time: %d seconds."
            (time-to-seconds (time-since emacs-load-start-time))))
+
+;; load custom file if exits
+;; (when (file-exists-p custom-file)
+;;  (load-file custom-file))
 
 (provide 'init)
 
