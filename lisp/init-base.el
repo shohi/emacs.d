@@ -93,5 +93,10 @@
 (use-package uuidgen
   :ensure t)
 
+
+;; enable view-mode for read-only buffer automatically
+;; https://lobste.rs/s/fguinn/batteries_included_with_emacs
+(setq view-read-only t)
+
 (provide 'init-base)
 ;;; init-base.el ends here.
