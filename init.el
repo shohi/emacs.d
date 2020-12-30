@@ -240,6 +240,7 @@ Rules:
   (require-init 'init-nim)
   (require-init 'init-rust)
   (require-init 'init-lua)
+  (require-init 'init-java)
 
   (require-init 'init-markdown)
   (require-init 'init-formatter)

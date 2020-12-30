@@ -62,8 +62,10 @@
   ;; require `goimports' installed
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save)
-  (add-hook 'go-mode-hook (lambda()
-			    (setq tab-width 4)))
+
+  ;; FIXME: not working here
+  ;; (add-hook 'go-mode-hook (lambda() (setq tab-width 4)))
+
   (bind-key "C-x C-v" #'go-alternate-visit-at-point go-mode-map)
 
   ;; FIXME: not work, will automatically insert `OIOI'
@@ -72,6 +74,9 @@
 
   (bind-key "C-c C-c" #'sk/show-file-name go-mode-map)
   )
+
+;; set tab width to 4 for golang files
+(add-hook 'go-mode-hook (lambda() (setq tab-width 4)))
 
 ;; gotest: Emacs mode to go unit test command line tool
 ;; https://github.com/nlamirault/gotest.el
