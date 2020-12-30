@@ -96,38 +96,39 @@ VPN is considered to be up when
 - its address matches PRIVATE-ADDR-PATTERN
 ")
 
+;; http proxy
+(setq url-gateway-method 'socks)
+(setq socks-server '("Default server" "localhost" 1080 5))
+
 (defun use-elpa-mirror-p ()
   "Return whether elpa mirror should be used.
-If `DISABLE_ELPA_MIRROR' env is set to `FALSE' or VPN is not up, return true.
+If `USE_ELPA_MIRROR' env is set to `true' or VPN is not up, return true.
 Otherwise, return nil. Refer https://www.gnu.org/software/emacs/manual/html_node/elisp/Misc-Network.html.
 Rules:
 1. vpn tunnel interface starts with `utun'
 2. vpn tunnel is assigned wit IPv4 address like [172 31 1 16 0]
 "
-  (string-equal (getenv "DISABLE_ELPA_MIRROR") "false"))
+  (string-equal (getenv "USE_ELPA_MIRROR") "true"))
 
-;; replace with USTC mirror
-;; https://mirrors.ustc.edu.cn/help/elpa.html
 (require 'package)
 (setq package-enable-at-startup nil)
+
+;; use tsinghua source if elpa mirror is enablde
+;; https://mirrors.tuna.tsinghua.edu.cn/help/elpa/
+;; NOTE: alternative USTC mirror - https://mirrors.ustc.edu.cn/help/elpa.html
 (if (use-elpa-mirror-p)
     (setq package-archives
+	'(("localelpa" . "~/.emacs.d/localelpa/")
+	  ("gnu" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+	  ("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+      ("melpa-stable" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/")
+      ("org" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
+  (setq package-archives
 	  '(("localelpa" . "~/.emacs.d/localelpa/")
 	    ("gnu" . "https://elpa.gnu.org/packages/")
 	    ("melpa" . "https://melpa.org/packages/")
 	    ("melpa-stable" . "https://stable.melpa.org/packages/")
-	    ("org" . "https://orgmode.org/elpa/")))
-  (setq package-archives
-	'(("localelpa" . "~/.emacs.d/localelpa/")
-	  ;; ("gnu" . "https://mirrors.ustc.edu.cn/elpa/gnu/")
-	  ;; ("melpa" . "https://mirrors.ustc.edu.cn/elpa/melpa/")
-	  ;; ("melpa-stable" . "https://mirrors.ustc.edu.cn/elpa/melpa-stable/")
-	  ;; ("org" . "https://mirrors.ustc.edu.cn/elpa/org/")
-	  ("gnu" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-	  ("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-          ("melpa-stable" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/")
-          ;; ("org" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
-	  ("org" . "https://orgmode.org/elpa/"))))
+	    ("org" . "https://orgmode.org/elpa/"))))
 
 (package-initialize)
 

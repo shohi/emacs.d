@@ -53,6 +53,7 @@
 
 (use-package go-mode
   :ensure t
+  :after lsp-mode
   :mode ("\\.go\\'" . go-mode)
   :bind (:map go-mode-map
 	      ("C-c R" . go-remove-unused-imports)
