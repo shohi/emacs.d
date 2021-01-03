@@ -148,6 +148,7 @@ Rules:
 (unless (package-installed-p 'quelpa)
   (package-refresh-contents)
   (package-install 'quela))
+(setq quelpa-update-melpa-p nil)
 
 (unless (package-installed-p 'quelpa-use-package)
   (package-refresh-contents)
