@@ -144,6 +144,17 @@ Rules:
   (package-refresh-contents)
   (package-install 'use-package))
 
+;; bootstrap `quelpa'
+(unless (package-installed-p 'quelpa)
+  (package-refresh-contents)
+  (package-install 'quela))
+
+(unless (package-installed-p 'quelpa-use-package)
+  (package-refresh-contents)
+  (package-install 'quela-use-package))
+
+(require 'quelpa-use-package)
+
 ;; install benchmark-init
 (use-package benchmark-init
   :ensure t
