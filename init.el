@@ -282,6 +282,9 @@ Rules:
   ;; osx clipboard
   (require-init 'init-clipboard)
 
+  ;; build tool
+  (require-init 'init-build)
+
   ;; diminish
   (require-init 'init-diminish)
 
