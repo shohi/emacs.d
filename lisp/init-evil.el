@@ -54,6 +54,7 @@
 ;; evil-org-mode - Supplemental evil-mode keybindings to emacs org-mode
 (use-package evil-org
   :ensure t
+  :after (quelpa quelpa-use-pacakge)
   :quelpa (evil-org :fetcher github "Somelauw/evil-org-mode")
   :after org
   :config

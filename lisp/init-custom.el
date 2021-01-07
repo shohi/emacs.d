@@ -126,5 +126,12 @@ Repeated invocations toggle between the two most recently open buffers."
 
 ;; FIXME: add function to open `init-[package].el' from init.el
 
+;; http proxy
+(defun sk/use-socks-proxy ()
+  (interactive)
+  (setq url-gateway-method 'socks)
+  (setq socks-server '("Default server" "localhost" 1080 5))
+  )
+
 (provide 'init-custom)
 ;;; init-custom.el ends here

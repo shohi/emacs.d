@@ -96,10 +96,6 @@ VPN is considered to be up when
 - its address matches PRIVATE-ADDR-PATTERN
 ")
 
-;; http proxy
-(setq url-gateway-method 'socks)
-(setq socks-server '("Default server" "localhost" 1080 5))
-
 (defun use-elpa-mirror-p ()
   "Return whether elpa mirror should be used.
 If `USE_ELPA_MIRROR' env is set to `true' or VPN is not up, return true.
@@ -143,18 +139,6 @@ Rules:
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
-
-;; bootstrap `quelpa'
-(unless (package-installed-p 'quelpa)
-  (package-refresh-contents)
-  (package-install 'quela))
-(setq quelpa-update-melpa-p nil)
-
-(unless (package-installed-p 'quelpa-use-package)
-  (package-refresh-contents)
-  (package-install 'quela-use-package))
-
-(require 'quelpa-use-package)
 
 ;; install benchmark-init
 (use-package benchmark-init
@@ -244,6 +228,7 @@ Rules:
   (require-init 'init-spinner)
   (require-init 'init-dumbjump)
 
+  (require-init 'init-quelpa)
   (require-init 'init-evil)
 
   (require-init 'init-elisp)
