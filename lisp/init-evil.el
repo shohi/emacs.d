@@ -15,7 +15,7 @@
   (setq evil-want-keybinding nil)
   :config
   ;; enable evil mode
-  (evil-mode 1)
+  ;; (evil-mode 1)
   )
 
 ;; evil-collection -  A set of keybindings for evil-mode

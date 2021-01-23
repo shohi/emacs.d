@@ -133,5 +133,21 @@ Repeated invocations toggle between the two most recently open buffers."
   (setq socks-server '("Default server" "localhost" 1080 5))
   )
 
+;; https://stackoverflow.com/questions/23299314/finding-the-exit-code-of-a-shell-command-in-elisp
+(defun sk/process-exit-code-and-output (program &rest args)
+  "Run PROGRAM with ARGS and return the exit code and output in a list."
+  (with-temp-buffer
+    (list (apply 'call-process program nil (current-buffer) nil args)
+          (buffer-string))))
+
+
+(defun sk/kill-gpg-agent ()
+  "Kill gpgagent to make it restart for resolving commit sign failure."
+  (interactive)
+  (let ((r (sk/process-exit-code-and-output "gpgconf" "--kill" "gpg-agent")))
+    (if (= 0 (nth 0 r))
+	   (message "gpg-agent killed")
+	(message (nth 1 r)))))
+
 (provide 'init-custom)
 ;;; init-custom.el ends here

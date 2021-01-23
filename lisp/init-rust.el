@@ -1,38 +1,22 @@
 ;; -*- coding: utf-8; lexical-binding: t; -*-
 ;; rust setup, refer https://lupan.pl/dotemacs/
 
-;; TODO: update setting - use rustic
+;; use rustic
+;; https://www.reddit.com/r/emacs/comments/gfa4hg/rustide_help_setting_up/
 ;; https://people.gnome.org/~federico/blog/bringing-my-emacs-from-the-past.html
-;; https://lupan.pl/dotemacs/
+;; https://emacs-china.org/t/rust-emacs/15568
 
-(use-package cargo
+(use-package rustic
   :ensure t
-  :defer)
-
-(use-package racer
-  :ensure t
-  :defer)
-
-(use-package rust-mode
-  :ensure t
-  :init
-  (setq company-tooltip-align-annotations t
-        rust-format-on-save t)
   :config
-  (add-hook 'rust-mode-hook #'company-mode)
-  (add-hook 'rust-mode-hook #'cargo-minor-mode)
-  (add-hook 'rust-mode-hook #'racer-mode)
+  ;; rust-analyzer is required
+  ;; https://github.com/rust-analyzer/rust-analyzer
+  (setq lsp-rust-analyzer-server-command '("~/.cargo/bin/rust-analyzer"))
 
-  (add-hook 'racer-mode-hook #'eldoc-mode)
-  (add-hook 'racer-mode-hook #'company-mode)
-
-  (use-package flycheck-rust
-     :ensure t)
-  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
-
-  :bind
-  (:map rust-mode-map
-   ("C-i" . company-indent-or-complete-common)))
+  ;; clippy and flychecker
+  ;; rustup component add --toolchain nightly clippy
+  ;; (push 'rustic-clippy flycheck-checkers)
+  )
 
 (provide 'init-rust)
 ;;; init-rust.el ends here.
