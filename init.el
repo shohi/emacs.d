@@ -162,9 +162,6 @@ Rules:
   (require-init 'init-spell)
   (require-init 'init-link)
 
-  ;; Org Mode
-  ;; (require-init 'init-org)
-
   ;; sane defaults
 
   ;; OS integration
