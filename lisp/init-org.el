@@ -20,8 +20,7 @@
   ;; disable leading indent in code block
   ;; https://stackoverflow.com/questions/53469017/org-mode-source-editing-indents-code-after-exiting-source-code-block-editor
   (setq org-edit-src-content-indentation 0
-      org-src-tab-acts-natively t
-      org-src-preserve-indentation t)
+      org-src-preserve-indentation nil)
 
   ;; ;; activate default key-bindings
   ;; ;; https://orgmode.org/manual/Activation.html
