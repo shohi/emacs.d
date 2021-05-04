@@ -17,9 +17,14 @@
 (use-package org
   :ensure nil
   :config
+  ;; disable leading indent in code block
+  ;; https://stackoverflow.com/questions/53469017/org-mode-source-editing-indents-code-after-exiting-source-code-block-editor
+  (setq org-edit-src-content-indentation 0
+      org-src-tab-acts-natively t
+      org-src-preserve-indentation t)
+
   ;; ;; activate default key-bindings
   ;; ;; https://orgmode.org/manual/Activation.html
-
   (global-set-key (kbd "C-c l") 'org-store-link)
   (global-set-key (kbd "C-c a") 'org-agenda)
   (global-set-key (kbd "C-c c") 'org-capture)
