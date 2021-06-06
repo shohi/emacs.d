@@ -29,6 +29,13 @@
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 
+;; For the case that the init file runs before the frame is created.
+;; Call of emacs with --daemon option.
+(add-hook 'after-make-frame-functions (lambda (frame)
+					(tool-bar-mode -1)
+					(menu-bar-mode -1)
+					(scroll-bar-mode -1)))
+
 ;; disable ring bell
 (setq ring-bell-function 'ignore)
 
@@ -82,6 +89,9 @@
 ;; restart-emacs - A simple emacs package to restart
 ;; emacs from within emacs
 (use-package restart-emacs
+  :ensure t)
+
+(use-package auto-package-update
   :ensure t)
 
 (provide 'init-base)
