@@ -15,6 +15,7 @@
     ("b" dumb-jump-back "Back"))
 
 (global-set-key (kbd "M-g") 'dumb-jump-hydra/body)
+(add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
 
 (provide 'init-dumbjump)
 ;;; init-dumbjump.el ends here.
